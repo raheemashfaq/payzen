@@ -1,0 +1,14 @@
+.left_heading {
+  font-size: 60px;
+}
+.p_heading {
+  padding: 16px;
+  line-height: 27px;
+}
+/* RealTime Reporting  */
+@media (max-width: 600px) {
+  .responsive_img {
+    right: 0px !important;
+    width: 50% !important;
+  }
+}
