@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -21,12 +22,12 @@ export default function Header() {
   };
 
   const menuItems = [
-    "Home",
-    "About",
-    "Pricing",
-    "Payment Methods",
-    "FAQs",
-    "Contact Us",
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Pricing", path: "/pricing" },
+    { name: "Payment Methods", path: "/payment-methods" },
+    { name: "FAQs", path: "/faqs" },
+    { name: "Contact Us", path: "/contact" },
   ];
 
   const mobileMenuId = "primary-search-account-menu-mobile";
@@ -41,28 +42,22 @@ export default function Header() {
       onClose={handleMobileMenuClose}
     >
       {menuItems.map((item, index) => (
-        <MenuItem
-          key={index}
-          sx={{ cursor: "pointer", "&:hover": { color: "green" } }}
-        >
-          <p>{item}</p>
+        <MenuItem key={index} onClick={handleMobileMenuClose}>
+          <NavLink
+            to={item.path}
+            style={({ isActive }) => ({
+              textDecoration: "none",
+              color: isActive ? "green" : "black",
+              fontWeight: isActive ? "bold" : "normal",
+              display: "block", // Fix for text breaking
+              whiteSpace: "nowrap", // Prevents breaking into new lines
+              padding: "8px 12px",
+            })}
+          >
+            {item.name}
+          </NavLink>
         </MenuItem>
       ))}
-      <MenuItem>
-        <Button
-          variant="outlined"
-          sx={{ borderRadius: "30px", padding: "12px 24px" }}
-        >
-          Register Now
-        </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          sx={{ borderRadius: "30px", padding: "12px 24px", marginLeft: 1 }}
-        >
-          Sign In
-        </Button>
-      </MenuItem>
     </Menu>
   );
 
@@ -75,42 +70,45 @@ export default function Header() {
             alt="Logo"
             style={{ width: "30px", height: "30px" }}
           />
-          <img src="/Assets/plogo.png" alt="Logo" style={{ height: "30px" }} />
+          <img src="/Assets/plogo.png" alt="logo" style={{ height: "30px" }} />
 
           <Box sx={{ flexGrow: 1 }} />
 
-          <Box sx={{ display: { xs: "none", md: "flex" }, color: "black" }}>
+          {/* Desktop Menu */}
+          <Box
+            sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}
+          >
             {menuItems.map((item, index) => (
-              <Toolbar
+              <NavLink
                 key={index}
-                sx={{
-                  cursor: "pointer",
-                  transition: "color 0.1s ease",
-                  "&:hover": { color: "green" },
-                }}
+                to={item.path}
+                style={({ isActive }) => ({
+                  textDecoration: "none",
+                  color: isActive ? "green" : "black",
+                  fontWeight: isActive ? "bold" : "normal",
+                  padding: "8px 12px",
+                  whiteSpace: "nowrap",
+                })}
               >
-                {item}
-              </Toolbar>
+                {item.name}
+              </NavLink>
             ))}
-            <Toolbar>
-              <Button
-                variant="outlined"
-                sx={{ borderRadius: "20px", color: "black" }}
-              >
-                Register Now
-              </Button>
-            </Toolbar>
-            <Toolbar>
-              <Button
-                variant="contained"
-                color="primary"
-                sx={{ borderRadius: "20px", color: "white" }}
-              >
-                Sign In
-              </Button>
-            </Toolbar>
+            <Button
+              variant="outlined"
+              sx={{ borderRadius: "20px", color: "black", marginLeft: 2 }}
+            >
+              Register Now
+            </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              sx={{ borderRadius: "20px", color: "white", marginLeft: 2 }}
+            >
+              Sign In
+            </Button>
           </Box>
 
+          {/* Mobile Menu Icon */}
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"

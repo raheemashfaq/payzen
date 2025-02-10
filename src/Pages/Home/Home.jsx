@@ -15,10 +15,17 @@ import {
   Step,
   StepLabel,
   CardActions,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  TextField,
 } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
 
-import React from "react";
+import React, { useState } from "react";
 import "./Home.css";
+import { TextFields } from "@mui/icons-material";
 
 const CustomMobileStepper = styled(MobileStepper)(({ theme }) => ({
   "& .MuiMobileStepper-dots": {
@@ -126,6 +133,30 @@ const Home = () => {
     {
       image: "/Assets/securityHead.png",
       title: "Dedicated 24/7 Support",
+    },
+  ];
+  const [expanded, setExpanded] = useState(false);
+
+  const handleChange = (panel) => (_, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+  const faqData = [
+    {
+      question: "What is the Pricing Model of PayZen?",
+      answer:
+        "PayZen offers a variety of pricing plans tailored to different business needs. Our pricing includes a monthly subscription fee based on the selected plan, which varies by transaction volume and features.",
+    },
+    {
+      question: "Who Does PayZen Serve?",
+      answer: "PayZen serves businesses of all sizes...",
+    },
+    {
+      question: "What should I do if a payment fails?",
+      answer: "You should check your payment details...",
+    },
+    {
+      question: "What is the Vision of PayZen?",
+      answer: "Our vision is to simplify payments...",
     },
   ];
 
@@ -915,6 +946,198 @@ const Home = () => {
             </Stepper>
           </Box>
         </Box>
+        {/* Apps Downloads  */}
+        <Box
+          sx={{ position: "relative", overflow: "hidden", padding: "50px 0" }}
+        >
+          <Grid container alignItems="center">
+            <Grid
+              item
+              xs={12}
+              md={6}
+              sx={{
+                backgroundColor: "#11243F",
+                padding: 4,
+                borderRadius: "0 50px 50px 0",
+                maxWidth: "900px",
+                height: "450px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                position: "relative",
+                zIndex: 2,
+              }}
+            >
+              <h3
+                style={{ fontSize: "32px", fontWeight: 700, color: "#ffffff" }}
+              >
+                Coming Soon....
+              </h3>
+              <h3
+                style={{ fontSize: "32px", fontWeight: 700, color: "#ffffff" }}
+              >
+                Download Our Mobile App <br /> To Get All Features Of <br />
+                PAYZEN
+              </h3>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "16px",
+                  marginTop: "20px",
+                }}
+              >
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "#ffffff",
+                    color: "#000",
+                    borderRadius: "30px",
+                    padding: "12px 24px",
+                    border: "1px solid #11243F",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    textTransform: "none",
+                  }}
+                >
+                  <img
+                    src="/Assets/apple.png"
+                    alt="Apple Store"
+                    style={{ width: "20px" }}
+                  />
+                  Download Now
+                </Button>
+
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "#ffffff",
+                    color: "#000",
+                    borderRadius: "30px",
+                    padding: "12px 24px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    textTransform: "none",
+                  }}
+                >
+                  <img
+                    src="/Assets/playstore.png"
+                    alt="Play Store"
+                    style={{ width: "20px" }}
+                  />
+                  Download Now
+                </Button>
+              </Box>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={6}
+              sx={{ position: "relative", maxWidth: "900px", height: "450px" }}
+            >
+              <Box
+                sx={{
+                  position: "absolute",
+                  right: "-80px",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  width: "700px",
+                  height: "100%",
+                  background:
+                    "radial-gradient(circle at center, #ffffff 0%, #F3F3F3 100%)",
+                  clipPath: "ellipse(50% 70% at 50% 50%)",
+                }}
+              ></Box>
+              <img
+                src="/Assets/iPhone 13 Pro.png"
+                alt="Hero"
+                style={{
+                  width: "100%",
+                  maxWidth: "600px",
+                  height: "450px",
+                  position: "relative",
+                  zIndex: 3,
+                }}
+              />
+            </Grid>
+          </Grid>
+        </Box>
+        {/* FAQ'S  */}
+        <Grid container spacing={2}>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            sx={{
+              backgroundColor: "#1253A4",
+              borderRadius: "20px",
+              padding: "40px ",
+            }}
+          >
+            <Typography
+              variant="bdoy1"
+              sx={{
+                fontSize: "45px",
+
+                fontWeight: 700,
+                color: "#ffffff",
+              }}
+            >
+              Frequently asked <br /> Questions
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: "16px",
+                fontWeight: 400,
+
+                color: "#ffffff",
+                lineHeight: "24px",
+              }}
+            >
+              Our comprehensive FAQ section covers everything you need to <br />{" "}
+              know about Pay Zen, from security and fees to integration and{" "}
+              <br />
+              processing. Find answers to common questions about our <br />
+              services, including supported payment methods, transaction <br />
+              processing, and technical support.
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Box sx={{ maxWidth: "600px", margin: "auto" }}>
+              {faqData.map((faq, index) => (
+                <Accordion
+                  key={index}
+                  expanded={expanded === `panel${index}`}
+                  onChange={handleChange(`panel${index}`)}
+                  sx={{
+                    boxShadow: "none",
+                    borderBottom: "1px solid #E0E0E0",
+                    "&:before": { display: "none" },
+                  }}
+                >
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    sx={{
+                      fontWeight: "bold",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                    }}
+                  >
+                    <CheckBoxIcon sx={{ color: "#0A68FF" }} />
+                    <Typography>{faq.question}</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Typography sx={{ color: "#555" }}>{faq.answer}</Typography>
+                  </AccordionDetails>
+                </Accordion>
+              ))}
+            </Box>
+          </Grid>
+        </Grid>
         {/* Secutity Checkup  */}
         <Box
           sx={{
@@ -973,7 +1196,6 @@ const Home = () => {
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-            padding: "50px",
           }}
         >
           <Typography
@@ -990,17 +1212,19 @@ const Home = () => {
             industry developments <br /> as PayZen continues to revolutionize
             digital payments.
           </Typography>
-          <Grid container spacing={1}>
+          <Grid container>
             <Grid item xs={12} md={8}>
               <Box sx={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
                 <Card
+                  className="wrapping"
                   sx={{
                     maxWidth: 400,
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    flexWrap: "nowrap",
                     padding: 0,
                     backgroundColor: "#F5F5F5",
-                    display: "flex",
-                    alignItems: "center",
-                    flexWrap: "wrap",
                   }}
                 >
                   <CardMedia
@@ -1025,7 +1249,7 @@ const Home = () => {
                     </CardContent>
                     <CardActions>
                       <Button size="small" sx={{ textTransform: "none" }}>
-                        Get Started >
+                        Get Started {">"}
                       </Button>
                     </CardActions>
                   </Box>
@@ -1037,6 +1261,7 @@ const Home = () => {
                     justifyContent: "center",
                     alignItems: "center",
                     flexDirection: "column",
+
                     padding: 0,
                     backgroundColor: "#F5F5F5",
                   }}
@@ -1068,13 +1293,14 @@ const Home = () => {
 
                     <CardActions>
                       <Button size="small" sx={{ textTransform: "none" }}>
-                        Get Started >
+                        Get Started {">"}
                       </Button>
                     </CardActions>
                   </Box>
                 </Card>
               </Box>
               <Card
+                className="wrapping"
                 sx={{
                   maxWidth: 610,
                   display: "flex",
@@ -1083,7 +1309,7 @@ const Home = () => {
                   padding: 0,
                   backgroundColor: "#F5F5F5",
                   mt: 1,
-                  flexWrap: "wrap",
+                  flexWrap: "nowrap",
                 }}
               >
                 <CardMedia
@@ -1114,7 +1340,7 @@ const Home = () => {
                   </CardContent>
                   <CardActions>
                     <Button size="small" sx={{ textTransform: "none" }}>
-                      Get Started >
+                      Get Started {">"}
                     </Button>
                   </CardActions>
                 </Box>
@@ -1123,18 +1349,24 @@ const Home = () => {
             <Grid item xs={12} md={4}>
               <Card sx={{ maxWidth: 500 }}>
                 <CardMedia
-                  sx={{ height: 140 }}
+                  sx={{ height: 250, width: "100%", maxWidth: 340 }}
                   image="/Assets/blog4.jpeg"
                   title="green iguana"
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Lizard
+                  <Typography
+                    gutterBottom
+                    variant="body1"
+                    component="div"
+                    sx={{ fontsize: "20px", fontWeight: 700 }}
+                  >
+                    PayZen has officially signed <br /> MOU with Visa Card and
+                    HBL
                   </Typography>
                   <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                    Lizards are a widespread group of squamate reptiles, with
-                    over 6,000 species, ranging across all continents except
-                    Antarctica
+                    This partnership will allow PayZen to <br /> integrate
+                    Visa's extensive network and <br /> HBL's robust banking
+                    services, bringing <br /> secure and accessible.
                   </Typography>
                 </CardContent>
                 <CardActions>
@@ -1145,6 +1377,8 @@ const Home = () => {
             </Grid>
           </Grid>
         </Box>
+        {/* Follow Us  */}
+       
       </Container>
     </>
   );
