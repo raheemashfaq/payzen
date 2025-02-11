@@ -42,15 +42,15 @@ export default function Header() {
       onClose={handleMobileMenuClose}
     >
       {menuItems.map((item, index) => (
-        <MenuItem key={index} onClick={handleMobileMenuClose}>
+        <MenuItem key={index} component="div" onClick={handleMobileMenuClose}>
           <NavLink
             to={item.path}
             style={({ isActive }) => ({
               textDecoration: "none",
               color: isActive ? "green" : "black",
               fontWeight: isActive ? "bold" : "normal",
-              display: "block", // Fix for text breaking
-              whiteSpace: "nowrap", // Prevents breaking into new lines
+              display: "block",
+              width: "100%", // Ensures full clickable area
               padding: "8px 12px",
             })}
           >

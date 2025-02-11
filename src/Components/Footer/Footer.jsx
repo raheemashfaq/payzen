@@ -19,6 +19,7 @@ const Footer = () => {
             spacing={2}
             sx={{
               minHeight: "300px",
+              width: "100%",
               backgroundImage: `url('/Assets/follow_bg.png')`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
@@ -55,7 +56,7 @@ const Footer = () => {
                         transition: "0.3s",
                         backgroundColor: "#fff",
                         padding: "4px",
-                        "&:hover": { transform: "scale(1.1)" }, // Smooth hover effect
+                        "&:hover": { transform: "scale(1.1)" },
                       }}
                     />
                   )
