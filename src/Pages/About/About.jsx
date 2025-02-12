@@ -5,7 +5,7 @@ import { Box, Button, Container, Grid, Typography } from "@mui/material";
 const About = () => {
   return (
     <>
-      <Container sx={{ padding: "0 40px" }}>
+      <Container>
         <HeroSec />
       </Container>
 

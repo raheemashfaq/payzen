@@ -11,7 +11,7 @@ const HeroSec = () => {
         backgroundRepeat: "no-repeat",
         width: "100%",
         minHeight: "100vh",
-        padding: { xs: "50px 20px", md: "20px 0" },
+        padding: { xs: "50px 0", md: "20px 0" },
         display: "flex",
         alignItems: "center",
       }}
