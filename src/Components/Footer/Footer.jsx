@@ -7,7 +7,9 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { green } from "@mui/material/colors";
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -149,17 +151,26 @@ const Footer = () => {
                   display: "flex",
                   flexDirection: "column",
                   borderRight: { md: "1px solid #ccc" },
+
                   pr: 2,
                 }}
               >
-                <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <img
-                    src="/Assets/coin.png"
-                    alt="logo"
-                    style={{ width: "40px", height: "40px" }}
-                  />
-                  <img src="/Assets/plogo.png" alt="PayZen" />
-                </Box>
+                <Link to="/">
+                  <Box
+                    sx={{ display: "flex", alignItems: "center", gap: "5px" }}
+                  >
+                    <img
+                      src="/Assets/coin.png"
+                      alt="logo"
+                      style={{ width: "40px", height: "40px" }}
+                    />
+                    <img
+                      style={{ height: "30px" }}
+                      src="/Assets/plogo.png"
+                      alt="PayZen"
+                    />
+                  </Box>
+                </Link>
                 <Typography
                   variant="body2"
                   sx={{
@@ -173,7 +184,6 @@ const Footer = () => {
                 </Typography>
               </Grid>
 
-              {/* Quick Links */}
               <Grid
                 item
                 xs={12}
@@ -192,24 +202,33 @@ const Footer = () => {
                 >
                   Quick Links
                 </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{ color: "#555", cursor: "pointer", marginTop: "5px" }}
+                <NavLink
+                  to="/about"
+                  style={({ isActive }) => ({
+                    textDecoration: "none",
+                  })}
                 >
-                  About Us
-                </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: "#555", cursor: "pointer", marginTop: "5px" }}
+                  >
+                    About Us
+                  </Typography>
+                </NavLink>
                 <Typography
                   variant="body2"
                   sx={{ color: "#555", cursor: "pointer", marginTop: "5px" }}
                 >
                   Vision
                 </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{ color: "#555", cursor: "pointer", marginTop: "5px" }}
-                >
-                  Payment Channels
-                </Typography>
+                <Link to="/payment-methods" style={{ textDecoration: "none" }}>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: "#555", cursor: "pointer", marginTop: "5px" }}
+                  >
+                    Payment Channels
+                  </Typography>
+                </Link>
               </Grid>
 
               <Grid
@@ -230,24 +249,28 @@ const Footer = () => {
                 >
                   Support
                 </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{ color: "#555", cursor: "pointer", marginTop: "5px" }}
-                >
-                  Contact Us
-                </Typography>
+                <Link to="/contact" style={{ textDecoration: "none" }}>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: "#555", cursor: "pointer", marginTop: "5px" }}
+                  >
+                    Contact Us
+                  </Typography>
+                </Link>
                 <Typography
                   variant="body2"
                   sx={{ color: "#555", cursor: "pointer", marginTop: "5px" }}
                 >
                   Terms and Conditions
                 </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{ color: "#555", cursor: "pointer", marginTop: "5px" }}
-                >
-                  FAQs
-                </Typography>
+                <Link to="/faqs" style={{ textDecoration: "none" }}>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: "#555", cursor: "pointer", marginTop: "5px" }}
+                  >
+                    FAQs
+                  </Typography>
+                </Link>
               </Grid>
 
               <Grid item xs={12} md={3} sx={{ pl: 2 }}>
@@ -279,6 +302,7 @@ const Footer = () => {
                   }}
                 >
                   <Email sx={{ color: "#555", fontSize: "20px" }} />
+
                   <Typography variant="body2" sx={{ color: "#555" }}>
                     info@payzen.pk
                   </Typography>

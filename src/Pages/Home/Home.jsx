@@ -541,7 +541,6 @@ const Home = () => {
                     },
                   }}
                 >
-                  {/* Background Shadow Effect */}
                   <Box
                     sx={{
                       position: "absolute",

@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -8,6 +8,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
+import "./Header.css";
 
 export default function Header() {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -42,16 +43,14 @@ export default function Header() {
       onClose={handleMobileMenuClose}
     >
       {menuItems.map((item, index) => (
-        <MenuItem key={index} component="div" onClick={handleMobileMenuClose}>
+        <MenuItem key={index} onClick={handleMobileMenuClose}>
           <NavLink
             to={item.path}
+            className="menu-link"
             style={({ isActive }) => ({
               textDecoration: "none",
               color: isActive ? "green" : "black",
               fontWeight: isActive ? "bold" : "normal",
-              display: "block",
-              width: "100%", // Ensures full clickable area
-              padding: "8px 12px",
             })}
           >
             {item.name}
@@ -65,16 +64,29 @@ export default function Header() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="sticky" sx={{ background: "#fff" }}>
         <Toolbar>
-          <img
-            src="/Assets/coin.png"
-            alt="Logo"
-            style={{ width: "30px", height: "30px" }}
-          />
-          <img src="/Assets/plogo.png" alt="logo" style={{ height: "30px" }} />
-
+          <Link to="/">
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "5px",
+              }}
+            >
+              <img
+                src="/Assets/coin.png"
+                alt="Logo"
+                style={{ width: "40px", height: "40px" }}
+              />
+              <img
+                src="/Assets/plogo.png"
+                alt="logo"
+                style={{ height: "30px" }}
+              />
+            </Box>
+          </Link>
           <Box sx={{ flexGrow: 1 }} />
 
-          {/* Desktop Menu */}
           <Box
             sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}
           >
@@ -82,6 +94,7 @@ export default function Header() {
               <NavLink
                 key={index}
                 to={item.path}
+                className="menu-link"
                 style={({ isActive }) => ({
                   textDecoration: "none",
                   color: isActive ? "green" : "black",

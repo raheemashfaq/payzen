@@ -101,7 +101,11 @@ const Contact = () => {
             <Typography
               variant="body1"
               gutterBottom
-              sx={{ color: "#11243F", fontSize: "45px", fontWeight: 700 }}
+              sx={{
+                color: "#11243F",
+                fontSize: { xs: "35px", md: "45px" },
+                fontWeight: 700,
+              }}
             >
               Contact Us
             </Typography>
@@ -117,7 +121,7 @@ const Contact = () => {
         </Grid>
         <Grid
           container
-          spacing={4}
+          spacing={0}
           justifyContent="center"
           alignItems="center"
           sx={{ margin: "20px 0" }}
@@ -126,13 +130,22 @@ const Contact = () => {
             <Typography
               variant="body1"
               gutterBottom
-              sx={{ color: "#11243F", fontSize: "45px", fontWeight: 700 }}
+              sx={{
+                color: "#11243F",
+                fontSize: { xs: "35px", md: "45px" },
+                fontWeight: 700,
+              }}
             >
               Lets Talk
             </Typography>
             <Typography
               variant="body1"
-              sx={{ fontSize: "16px", fontWeight: 400, color: "#525252" }}
+              sx={{
+                fontSize: "16px",
+                fontWeight: 400,
+                color: "#525252",
+                mb: 3,
+              }}
             >
               Your feedback is Important to us. We’re here to answer your <br />
               questions and offer personalized support. Stay connected <br />{" "}
@@ -182,7 +195,6 @@ const Contact = () => {
                 </Grid>
               </Grid>
 
-              {/* Second Row */}
               <Grid
                 container
                 spacing={2}
