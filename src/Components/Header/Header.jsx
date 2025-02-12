@@ -43,19 +43,20 @@ export default function Header() {
       onClose={handleMobileMenuClose}
     >
       {menuItems.map((item, index) => (
-        <MenuItem key={index} onClick={handleMobileMenuClose}>
-          <NavLink
-            to={item.path}
-            className="menu-link"
-            style={({ isActive }) => ({
-              textDecoration: "none",
-              color: isActive ? "green" : "black",
-              fontWeight: isActive ? "bold" : "normal",
-            })}
-          >
+        <NavLink
+          to={item.path}
+          className="menu-link"
+          style={({ isActive }) => ({
+            textDecoration: "none",
+            color: isActive ? "green" : "black",
+            fontWeight: isActive ? "bold" : "normal",
+            display: "block",
+          })}
+        >
+          <MenuItem key={index} onClick={handleMobileMenuClose}>
             {item.name}
-          </NavLink>
-        </MenuItem>
+          </MenuItem>
+        </NavLink>
       ))}
     </Menu>
   );
