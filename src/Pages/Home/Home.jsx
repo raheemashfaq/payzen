@@ -77,7 +77,7 @@ const Home = () => {
   const isSmallScreen = useMediaQuery("(max-width: 600px)");
   return (
     <>
-      <Container sx={{ padding: "0 70px" }}>
+      <Container sx={{ padding: "0 40px" }}>
         <HeroSec />
         {/* Features Section */}
         <Box

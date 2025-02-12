@@ -11,7 +11,7 @@ const HeroSec = () => {
         backgroundRepeat: "no-repeat",
         width: "100%",
         minHeight: "100vh",
-        padding: { xs: "40px 20px", md: "20px 0" }, // Adjust padding for mobile
+        padding: { xs: "50px 20px", md: "20px 0" },
         display: "flex",
         alignItems: "center",
       }}
@@ -25,7 +25,7 @@ const HeroSec = () => {
               fontSize: { xs: "28px", sm: "36px", md: "60px" },
               color: "#11243F",
               fontWeight: "bold",
-              textAlign: { xs: "start", md: "left" }, // Center text on mobile
+              textAlign: { xs: "center", md: "left" }, // Centered text on mobile
             }}
           >
             Safe & Hassle-Free
@@ -36,14 +36,14 @@ const HeroSec = () => {
               fontSize: { xs: "14px", md: "16px" },
               lineHeight: "25px",
               color: "#11243F",
-              textAlign: { xs: "start", md: "left" },
-              paddingX: { xs: 0, md: 0 }, // Add horizontal padding for better readability
+              textAlign: { xs: "center", md: "left" },
+              marginTop: 2,
             }}
           >
-            PayZen Provides Streamlined Payment Management with a Unified
-            Dashboard, Enabling Businesses to Collect Payments Effortlessly by
-            Creating Digital Invoices and Facilitating both online and in-person
-            Payment Collection.
+            PayZen provides streamlined payment management with a unified
+            dashboard, enabling businesses to collect payments effortlessly by
+            creating digital invoices and facilitating both online and in-person
+            payment collection.
           </Typography>
 
           {/* Buttons */}
@@ -53,7 +53,7 @@ const HeroSec = () => {
               justifyContent: { xs: "center", md: "flex-start" },
               gap: 2,
               marginTop: 3,
-              flexWrap: "wrap", // Wrap buttons on smaller screens
+              flexWrap: "wrap",
             }}
           >
             <Button
@@ -64,6 +64,11 @@ const HeroSec = () => {
                 fontSize: { xs: "1rem", md: "1.25rem" },
                 padding: { xs: "6px 12px", md: "12px 24px" },
                 border: "1px solid #11243F",
+                transition: "0.3s",
+                "&:hover": {
+                  backgroundColor: "#11243F",
+                  color: "#fff",
+                },
               }}
             >
               Get Started
@@ -76,6 +81,10 @@ const HeroSec = () => {
                 borderRadius: "30px",
                 fontSize: { xs: "1rem", md: "1.25rem" },
                 padding: { xs: "6px 12px", md: "12px 24px" },
+                transition: "0.3s",
+                "&:hover": {
+                  backgroundColor: "#0F3C73",
+                },
               }}
             >
               Get Started

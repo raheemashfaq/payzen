@@ -7,7 +7,6 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { green } from "@mui/material/colors";
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
@@ -21,22 +20,23 @@ const Footer = () => {
             spacing={2}
             sx={{
               minHeight: "300px",
-              width: "100%",
               backgroundImage: `url('/Assets/follow_bg.png')`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundColor: "black",
+              padding: { xs: "30px", md: "50px" },
+              borderRadius: "10px",
             }}
           >
+            {/* Social Media Links */}
             <Grid item xs={12} md={6}>
               <Typography
-                variant="body1"
+                variant="h5"
                 sx={{
-                  fontSize: "24px",
+                  fontSize: { xs: "22px", md: "24px" },
                   fontWeight: 700,
-                  mb: 2,
                   color: "#ffffff",
-                  marginTop: "4rem",
+                  marginBottom: "16px",
                 }}
               >
                 Follow Us
@@ -66,26 +66,25 @@ const Footer = () => {
               </Box>
             </Grid>
 
+            {/* Subscription Box */}
             <Grid item xs={12} md={6}>
               <Typography
-                variant="body1"
+                variant="h5"
                 sx={{
-                  fontSize: "35px",
+                  fontSize: { xs: "22px", md: "28px" },
                   fontWeight: 700,
-
                   color: "#ffffff",
-                  marginTop: "4rem",
                 }}
               >
-                Join Hands with Payzen
+                Join Hands with PayZen
               </Typography>
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: "24px",
+                  fontSize: { xs: "16px", md: "20px" },
                   fontWeight: 400,
                   color: "#ffffff",
-                  mb: 2,
+                  marginBottom: "20px",
                 }}
               >
                 Your Gateway to Financial Success
@@ -132,200 +131,133 @@ const Footer = () => {
               </Box>
             </Grid>
           </Grid>
-          <Box
-            sx={{
-              background: "#fff",
-              padding: "20px 0",
-            }}
+        </Box>
+
+        {/* Footer Links & Contact Info */}
+        <Box sx={{ background: "#fff", padding: "40px 0" }}>
+          <Grid
+            container
+            spacing={2}
+            sx={{ maxWidth: "1200px", margin: "auto" }}
           >
-            <Grid
-              container
-              spacing={2}
-              sx={{ maxWidth: "1200px", margin: "auto" }}
-            >
-              <Grid
-                item
-                xs={12}
-                md={3}
+            <Grid item xs={12} md={3} sx={{ pr: 2 }}>
+              <Link to="/">
+                <Box sx={{ display: "flex", alignItems: "center", gap: "5px" }}>
+                  <img
+                    src="/Assets/coin.png"
+                    alt="logo"
+                    style={{ width: "40px", height: "40px" }}
+                  />
+                  <img
+                    style={{ height: "30px" }}
+                    src="/Assets/plogo.png"
+                    alt="PayZen"
+                  />
+                </Box>
+              </Link>
+              <Typography
+                variant="body2"
                 sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  borderRight: { md: "1px solid #ccc" },
-
-                  pr: 2,
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  color: "#555",
+                  marginTop: "8px",
                 }}
               >
-                <Link to="/">
-                  <Box
-                    sx={{ display: "flex", alignItems: "center", gap: "5px" }}
-                  >
-                    <img
-                      src="/Assets/coin.png"
-                      alt="logo"
-                      style={{ width: "40px", height: "40px" }}
-                    />
-                    <img
-                      style={{ height: "30px" }}
-                      src="/Assets/plogo.png"
-                      alt="PayZen"
-                    />
-                  </Box>
-                </Link>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    fontSize: "14px",
-                    fontWeight: "500",
-                    color: "#555",
-                    marginTop: "8px",
-                  }}
-                >
-                  SAFE | HASSLE-FREE PAYMENT COLLECTIONS
-                </Typography>
-              </Grid>
-
-              <Grid
-                item
-                xs={12}
-                md={3}
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  borderRight: { md: "1px solid #ccc" },
-                  pr: 2,
-                  pl: 2,
-                }}
-              >
-                <Typography
-                  variant="h6"
-                  sx={{ fontSize: "16px", fontWeight: "600", color: "#333" }}
-                >
-                  Quick Links
-                </Typography>
-                <NavLink
-                  to="/about"
-                  style={({ isActive }) => ({
-                    textDecoration: "none",
-                  })}
-                >
-                  <Typography
-                    variant="body2"
-                    sx={{ color: "#555", cursor: "pointer", marginTop: "5px" }}
-                  >
-                    About Us
-                  </Typography>
-                </NavLink>
-                <Typography
-                  variant="body2"
-                  sx={{ color: "#555", cursor: "pointer", marginTop: "5px" }}
-                >
-                  Vision
-                </Typography>
-                <Link to="/payment-methods" style={{ textDecoration: "none" }}>
-                  <Typography
-                    variant="body2"
-                    sx={{ color: "#555", cursor: "pointer", marginTop: "5px" }}
-                  >
-                    Payment Channels
-                  </Typography>
-                </Link>
-              </Grid>
-
-              <Grid
-                item
-                xs={12}
-                md={3}
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  borderRight: { md: "1px solid #ccc" },
-                  pr: 2,
-                  pl: 2,
-                }}
-              >
-                <Typography
-                  variant="h6"
-                  sx={{ fontSize: "16px", fontWeight: "600", color: "#333" }}
-                >
-                  Support
-                </Typography>
-                <Link to="/contact" style={{ textDecoration: "none" }}>
-                  <Typography
-                    variant="body2"
-                    sx={{ color: "#555", cursor: "pointer", marginTop: "5px" }}
-                  >
-                    Contact Us
-                  </Typography>
-                </Link>
-                <Typography
-                  variant="body2"
-                  sx={{ color: "#555", cursor: "pointer", marginTop: "5px" }}
-                >
-                  Terms and Conditions
-                </Typography>
-                <Link to="/faqs" style={{ textDecoration: "none" }}>
-                  <Typography
-                    variant="body2"
-                    sx={{ color: "#555", cursor: "pointer", marginTop: "5px" }}
-                  >
-                    FAQs
-                  </Typography>
-                </Link>
-              </Grid>
-
-              <Grid item xs={12} md={3} sx={{ pl: 2 }}>
-                <Typography
-                  variant="h6"
-                  sx={{ fontSize: "16px", fontWeight: "600", color: "#333" }}
-                >
-                  Reach Us
-                </Typography>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    marginTop: "8px",
-                  }}
-                >
-                  <Phone sx={{ color: "#555", fontSize: "20px" }} />
-                  <Typography variant="body2" sx={{ color: "#555" }}>
-                    +92-42-99000000 | Ext: 1209
-                  </Typography>
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    marginTop: "8px",
-                  }}
-                >
-                  <Email sx={{ color: "#555", fontSize: "20px" }} />
-
-                  <Typography variant="body2" sx={{ color: "#555" }}>
-                    info@payzen.pk
-                  </Typography>
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    marginTop: "8px",
-                  }}
-                >
-                  <LocationOn sx={{ color: "#555", fontSize: "20px" }} />
-                  <Typography variant="body2" sx={{ color: "#555" }}>
-                    12th Floor, Arfa Software Technology Park, Lahore, Punjab
-                    54000
-                  </Typography>
-                </Box>
-              </Grid>
+                SAFE | HASSLE-FREE PAYMENT COLLECTIONS
+              </Typography>
             </Grid>
-          </Box>
+
+            <Grid item xs={12} md={3} sx={{ pr: 2 }}>
+              <Typography
+                variant="h6"
+                sx={{ fontSize: "16px", fontWeight: "600", color: "#333" }}
+              >
+                Quick Links
+              </Typography>
+              {["About Us", "Vision", "Payment Channels"].map((link, index) => (
+                <Typography
+                  key={index}
+                  variant="body2"
+                  sx={{ color: "#555", cursor: "pointer", mt: 1 }}
+                >
+                  {link}
+                </Typography>
+              ))}
+            </Grid>
+
+            <Grid item xs={12} md={3} sx={{ pr: 2 }}>
+              <Typography
+                variant="h6"
+                sx={{ fontSize: "16px", fontWeight: "600", color: "#333" }}
+              >
+                Support
+              </Typography>
+              {["Contact Us", "Terms and Conditions", "FAQs"].map(
+                (link, index) => (
+                  <Typography
+                    key={index}
+                    variant="body2"
+                    sx={{ color: "#555", cursor: "pointer", mt: 1 }}
+                  >
+                    {link}
+                  </Typography>
+                )
+              )}
+            </Grid>
+
+            <Grid item xs={12} md={3}>
+              <Typography
+                variant="h6"
+                sx={{ fontSize: "16px", fontWeight: "600", color: "#333" }}
+              >
+                Reach Us
+              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  mt: 1,
+                }}
+              >
+                <Phone sx={{ color: "#555", fontSize: "20px" }} />
+                <Typography variant="body2" sx={{ color: "#555" }}>
+                  +92-42-99000000 | Ext: 1209
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  mt: 1,
+                }}
+              >
+                <Email sx={{ color: "#555", fontSize: "20px" }} />
+                <Typography variant="body2" sx={{ color: "#555" }}>
+                  info@payzen.pk
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  mt: 1,
+                }}
+              >
+                <LocationOn sx={{ color: "#555", fontSize: "20px" }} />
+                <Typography variant="body2" sx={{ color: "#555" }}>
+                  12th Floor, Arfa Software Technology Park, Lahore, Punjab
+                  54000
+                </Typography>
+              </Box>
+            </Grid>
+          </Grid>
         </Box>
       </Container>
+
       <Typography
         variant="body1"
         sx={{
