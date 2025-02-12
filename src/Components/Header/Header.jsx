@@ -8,7 +8,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
-import "./Header.css";
+import "./Header.css"; // Ensure this file has styles for hover effects
 
 export default function Header() {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -44,6 +44,7 @@ export default function Header() {
     >
       {menuItems.map((item, index) => (
         <NavLink
+          key={index}
           to={item.path}
           className="menu-link"
           style={({ isActive }) => ({
@@ -51,11 +52,11 @@ export default function Header() {
             color: isActive ? "green" : "black",
             fontWeight: isActive ? "bold" : "normal",
             display: "block",
+            padding: "10px 20px",
           })}
+          onClick={handleMobileMenuClose}
         >
-          <MenuItem key={index} onClick={handleMobileMenuClose}>
-            {item.name}
-          </MenuItem>
+          <MenuItem>{item.name}</MenuItem>
         </NavLink>
       ))}
     </Menu>
@@ -63,13 +64,13 @@ export default function Header() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="sticky" sx={{ background: "#fff" }}>
+      <AppBar position="sticky" sx={{ background: "#fff", padding: "10px 0" }}>
         <Toolbar>
+          {/* Logo */}
           <Link to="/">
             <Box
               sx={{
                 display: "flex",
-                justifyContent: "center",
                 alignItems: "center",
                 gap: "5px",
               }}
@@ -86,10 +87,16 @@ export default function Header() {
               />
             </Box>
           </Link>
+
           <Box sx={{ flexGrow: 1 }} />
 
+          {/* Desktop Menu */}
           <Box
-            sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}
+            sx={{
+              display: { xs: "none", md: "flex" },
+              alignItems: "center",
+              gap: 3,
+            }}
           >
             {menuItems.map((item, index) => (
               <NavLink
@@ -100,8 +107,8 @@ export default function Header() {
                   textDecoration: "none",
                   color: isActive ? "green" : "black",
                   fontWeight: isActive ? "bold" : "normal",
-                  padding: "8px 12px",
-                  whiteSpace: "nowrap",
+                  padding: "10px 15px",
+                  transition: "color 0.3s ease-in-out",
                 })}
               >
                 {item.name}
@@ -109,14 +116,25 @@ export default function Header() {
             ))}
             <Button
               variant="outlined"
-              sx={{ borderRadius: "20px", color: "black", marginLeft: 2 }}
+              sx={{
+                borderRadius: "20px",
+                color: "black",
+                marginLeft: 2,
+                "&:hover": {
+                  backgroundColor: "#f0f0f0",
+                },
+              }}
             >
               Register Now
             </Button>
             <Button
               variant="contained"
               color="primary"
-              sx={{ borderRadius: "20px", color: "white", marginLeft: 2 }}
+              sx={{
+                borderRadius: "20px",
+                color: "white",
+                marginLeft: 2,
+              }}
             >
               Sign In
             </Button>
