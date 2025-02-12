@@ -37,106 +37,126 @@ const Unique = () => {
       image: "/Assets/card.png",
     },
   ];
+
   return (
-    <div>
-      <Box>
-        <Grid container alignItems="center">
-          <Grid item xs={12} md={6}>
-            <img
-              style={{
-                width: "80%",
-                maxWidth: "583px",
-              }}
-              src="/Assets/left_atm.png"
-              alt="Hero"
-            />
-          </Grid>
-          <Grid item xs={12} md={6} className="left">
-            <h1
-              style={{
-                fontSize: "50px",
-                color: "#11243F",
-                marginBottom: "0",
-              }}
-            >
-              Benefits that make <br /> PayZen unique
-            </h1>
-            <p
-              style={{
-                padding: "16px",
-                lineHeight: "25px",
-                color: "#11243F",
-              }}
-            >
-              PayZen is distinguished by robust security features and seamless{" "}
-              <br />
-              integration, guaranteeing a reliable payment processing
-              experience.
-            </p>
-            <Grid container spacing={2}>
-              {cards.map((card, index) => (
-                <Grid item xs={12} md={6} key={index}>
-                  <Card
-                    key={index}
-                    sx={{
-                      width: "100%",
-                      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                      "&:hover": {
-                        boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
-                      },
-                    }}
-                  >
-                    <CardContent>
-                      <Stack direction="row" spacing={2}>
-                        <Avatar
-                          alt="Remy Sharp"
-                          src={card.image}
-                          sx={{ width: 56, height: 56 }}
-                        />
-                        <Typography variant="h5">{card.title}</Typography>
-                      </Stack>
-                      <Typography variant="body2">
-                        {card.description}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
-            <Box className="buttons" sx={{ padding: "20px 0" }}>
-              <Button
-                variant="contained"
-                size="large"
-                sx={{
-                  backgroundColor: "transparent",
-                  color: "#11243F",
-                  borderRadius: "30px",
-                  fontSize: "1.25rem",
-                  padding: "12px 24px",
-                  marginRight: 1,
-                  border: "1px solid #11243F",
-                }}
-              >
-                Get Started
-              </Button>
-              <Button
-                variant="contained"
-                size="large"
-                sx={{
-                  backgroundColor: "#1253A4",
-                  color: "#FFFFFF",
-                  borderRadius: "30px",
-                  fontSize: "1.25rem",
-                  padding: "12px 24px",
-                }}
-              >
-                Get Started
-              </Button>
-            </Box>
-          </Grid>
+    <Box sx={{ padding: { xs: "20px", md: "50px 0" } }}>
+      <Grid container alignItems="center" spacing={4}>
+        <Grid item xs={12} md={6} sx={{ textAlign: "center" }}>
+          <img
+            src="/Assets/left_atm.png"
+            alt="Hero"
+            style={{
+              width: "100%",
+              maxWidth: "583px",
+            }}
+          />
         </Grid>
-      </Box>
-    </div>
+
+        {/* Right Side: Text and Features */}
+        <Grid item xs={12} md={6}>
+          <Typography
+            variant="h4"
+            sx={{
+              fontSize: { xs: "28px", md: "50px" },
+              color: "#11243F",
+              fontWeight: "bold",
+              textAlign: { xs: "center", md: "left" },
+            }}
+          >
+            Benefits that make <br /> PayZen unique
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              fontSize: { xs: "14px", md: "18px" },
+              color: "#11243F",
+              textAlign: { xs: "center", md: "left" },
+              marginTop: "10px",
+            }}
+          >
+            PayZen is distinguished by robust security features and seamless
+            integration, guaranteeing a reliable payment processing experience.
+          </Typography>
+
+          {/* Feature Cards */}
+          <Grid container spacing={2} sx={{ marginTop: "20px" }}>
+            {cards.map((card, index) => (
+              <Grid item xs={12} sm={6} key={index}>
+                <Card
+                  sx={{
+                    width: "100%",
+                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                    "&:hover": {
+                      boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
+                    },
+                  }}
+                >
+                  <CardContent>
+                    <Stack direction="row" spacing={2} alignItems="center">
+                      <Avatar
+                        alt={card.title}
+                        src={card.image}
+                        sx={{ width: 56, height: 56 }}
+                      />
+                      <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                        {card.title}
+                      </Typography>
+                    </Stack>
+                    <Typography variant="body2" sx={{ marginTop: "5px" }}>
+                      {card.description}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: { xs: "center", md: "flex-start" },
+              gap: "10px",
+              marginTop: "30px",
+              flexWrap: "wrap",
+            }}
+          >
+            <Button
+              variant="outlined"
+              size="large"
+              sx={{
+                color: "#11243F",
+                borderRadius: "30px",
+                fontSize: { xs: "1rem", md: "1.25rem" },
+                padding: { xs: "6px 12px", md: "12px 24px" },
+                border: "1px solid #11243F",
+                "&:hover": {
+                  backgroundColor: "#11243F",
+                  color: "#FFFFFF",
+                },
+              }}
+            >
+              Get Started
+            </Button>
+            <Button
+              variant="contained"
+              size="large"
+              sx={{
+                backgroundColor: "#1253A4",
+                color: "#FFFFFF",
+                borderRadius: "30px",
+                fontSize: { xs: "1rem", md: "1.25rem" },
+                padding: { xs: "6px 12px", md: "12px 24px" },
+                "&:hover": {
+                  backgroundColor: "#0E468A",
+                },
+              }}
+            >
+              Learn More
+            </Button>
+          </Box>
+        </Grid>
+      </Grid>
+    </Box>
   );
 };
 
