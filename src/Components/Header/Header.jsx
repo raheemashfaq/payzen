@@ -95,7 +95,7 @@ export default function Header() {
             sx={{
               display: { xs: "none", md: "flex" },
               alignItems: "center",
-              gap: 3,
+              gap: 1,
             }}
           >
             {menuItems.map((item, index) => (

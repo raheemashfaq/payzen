@@ -953,7 +953,8 @@ const Home = () => {
                 <Card
                   className="wrapping"
                   sx={{
-                    maxWidth: 400,
+                    maxWidth: { md: 400 },
+                    width: "100%",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",

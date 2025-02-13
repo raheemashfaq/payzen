@@ -8,12 +8,12 @@ const Faq = () => {
       <Container>
         <Box
           sx={{
-            margin: "20px 0",
+            margin: "20px auto",
             width: "100%",
             maxWidth: "1090px",
-            minHeight: { xs: "250px", md: "313px" }, // Adjusting height for responsiveness
+            minHeight: { xs: "250px", md: "313px" },
             backgroundColor: "#F6F6F6",
-            padding: { xs: "10px", md: "30px" }, // Reducing padding on smaller screens
+            padding: { xs: "10px", md: "30px" },
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
