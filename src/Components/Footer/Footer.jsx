@@ -26,9 +26,9 @@ const Footer = () => {
               backgroundColor: "black",
               padding: { xs: "30px", md: "50px" },
               borderRadius: "10px",
+              margin: "0 auto",
             }}
           >
-            {/* Social Media Links */}
             <Grid item xs={12} md={6}>
               <Typography
                 variant="h5"

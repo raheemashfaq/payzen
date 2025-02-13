@@ -951,7 +951,6 @@ const Home = () => {
             <Grid item xs={12} md={8}>
               <Box sx={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
                 <Card
-                  className="wrapping"
                   sx={{
                     maxWidth: { md: 400 },
                     width: "100%",
@@ -1005,7 +1004,7 @@ const Home = () => {
                   <Typography
                     gutterBottom
                     variant="body1"
-                    sx={{ fontWeight: "bold" }}
+                    sx={{ fontWeight: "bold", padding: "10px" }}
                     component="div"
                   >
                     Welcome New Digital <br /> ERA
@@ -1015,18 +1014,9 @@ const Home = () => {
                     component="img"
                     alt="green iguana"
                     image="/Assets/blog2.png"
-                    sx={{ maxWidth: "100px", padding: 0 }}
+                    sx={{ width: "100%", padding: "10px" }}
                   />
                   <Box>
-                    <Typography
-                      variant="body2"
-                      sx={{ color: "text.secondary" }}
-                    >
-                      PayZen launching ceremony in collaboration with
-                      Mastercard, marking a new era of seamless and secure
-                      payment solutions.
-                    </Typography>
-
                     <CardActions>
                       <Button size="small" sx={{ textTransform: "none" }}>
                         Get Started {">"}
@@ -1036,7 +1026,6 @@ const Home = () => {
                 </Card>
               </Box>
               <Card
-                className="wrapping"
                 sx={{
                   maxWidth: 610,
                   display: "flex",
@@ -1045,14 +1034,18 @@ const Home = () => {
                   padding: 0,
                   backgroundColor: "#F5F5F5",
                   mt: 1,
-                  flexWrap: "nowrap",
+                  flexWrap: { xs: "wrap", md: "nowrap" },
                 }}
               >
                 <CardMedia
                   component="img"
                   alt="green iguana"
                   image="/Assets/blog3.png"
-                  sx={{ maxWidth: "165px", padding: 0 }}
+                  sx={{
+                    // maxWidth: { md: "165px" },
+                    width: { xs: "100%", md: "100%" },
+                    padding: 0,
+                  }}
                 />
                 <Box>
                   <CardContent>
@@ -1085,7 +1078,7 @@ const Home = () => {
             <Grid item xs={12} md={4}>
               <Card sx={{ maxWidth: 500 }}>
                 <CardMedia
-                  sx={{ height: 250, width: "100%", maxWidth: 340 }}
+                  sx={{ height: 298, width: "100%", maxWidth: 400 }}
                   image="/Assets/blog4.jpeg"
                   title="green iguana"
                 />

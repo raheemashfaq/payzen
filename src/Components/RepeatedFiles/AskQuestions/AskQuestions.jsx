@@ -41,9 +41,13 @@ const AskQuestions = () => {
   ];
 
   return (
-    <Box sx={{ margin: "40px 0", padding: { xs: "20px", md: "40px" } }}>
-      <Grid container spacing={4} alignItems="center">
-        {/* Left Section: Introduction */}
+    <Box
+      sx={{
+        margin: "40px 0",
+        padding: { xs: "20px", md: "40px" },
+      }}
+    >
+      <Grid container spacing={{ xs: 0, md: 4 }} alignItems="center">
         <Grid
           item
           xs={12}
@@ -52,7 +56,8 @@ const AskQuestions = () => {
             backgroundColor: "#1253A4",
             borderRadius: "20px",
             padding: { xs: "30px", md: "50px" },
-            textAlign: { xs: "center", md: "left" },
+            textAlign: { xs: "start", md: "left" },
+            margin: "auto",
           }}
         >
           <Typography
@@ -81,10 +86,8 @@ const AskQuestions = () => {
             payment methods, and technical support.
           </Typography>
         </Grid>
-
-        {/* Right Section: Accordion for FAQs */}
         <Grid item xs={12} md={6}>
-          <Box sx={{ maxWidth: "600px", margin: "auto" }}>
+          <Box sx={{ maxWidth: "600px" }}>
             {faqData.map((faq, index) => (
               <Accordion
                 key={index}

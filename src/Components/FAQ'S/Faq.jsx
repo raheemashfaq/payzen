@@ -8,7 +8,7 @@ const Faq = () => {
       <Container>
         <Box
           sx={{
-            margin: "20px auto",
+            margin: "20px 0",
             width: "100%",
             maxWidth: "1090px",
             minHeight: { xs: "250px", md: "313px" },
