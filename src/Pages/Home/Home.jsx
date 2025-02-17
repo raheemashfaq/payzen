@@ -357,7 +357,7 @@ const Home = () => {
               <Typography
                 variant="h3"
                 sx={{
-                  fontSize: { xs: "32px", md: "50px" },
+                  fontSize: { xs: "28px", md: "50px" },
                   color: "#11243F",
                   fontWeight: "700",
                 }}
@@ -374,7 +374,7 @@ const Home = () => {
 
               <Card
                 sx={{
-                  margin: { xs: "30px auto", md: "40px 0" },
+                  margin: { xs: "60px auto", md: "40px 0" },
                   maxWidth: 400,
                   padding: "20px",
                   backgroundColor: "#11243F",
@@ -390,7 +390,7 @@ const Home = () => {
                   style={{
                     position: "absolute",
                     width: "60%",
-                    top: "-80px",
+                    top: { xs: "0", md: "-80px" },
                     right: "-20px",
                   }}
                 />
@@ -441,7 +441,7 @@ const Home = () => {
                     sx={{
                       fontWeight: "400",
                       color: "#fff",
-                      lineHeight: "24px",
+                      lineHeight: { sm: "16px", md: "24px" },
                       mt: 1,
                     }}
                   >
@@ -659,7 +659,7 @@ const Home = () => {
             What Our Clients Say About Us
           </Typography>
 
-          <Grid container spacing={3} justifyContent="center">
+          <Grid container spacing={5} justifyContent="center">
             {clientCards.map((client, index) => (
               <Grid item xs={12} sm={6} md={4} key={index}>
                 <Card
@@ -981,7 +981,7 @@ const Home = () => {
             industry developments <br /> as PayZen continues to revolutionize
             digital payments.
           </Typography>
-          <Grid container>
+          <Grid container spacing={1}>
             <Grid item xs={12} md={8}>
               <Box sx={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
                 <Card
