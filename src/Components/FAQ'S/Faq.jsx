@@ -56,7 +56,7 @@ const Faq = () => {
         >
           <Box
             component="img"
-            src="/Assets/Images 1.png"
+            src="/Assets/image1.webp"
             alt="About Payzen"
             sx={{
               width: "100%",
