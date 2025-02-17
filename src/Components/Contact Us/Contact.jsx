@@ -62,18 +62,19 @@ const Contact = () => {
         </div>
 
         <Grid container spacing={4} justifyContent="center" alignItems="center">
+          {/* Cards Section */}
           <Grid item xs={12} md={6}>
-            <Grid container spacing={5}>
+            <Grid container spacing={{ xs: 3, md: 5 }} justifyContent="center">
               {cards.map((item, index) => (
-                <Grid item xs={12} key={index}>
+                <Grid item xs={12} sm={6} md={6} key={index}>
                   <Card
                     sx={{
                       textAlign: "center",
                       padding: "10px",
                       backgroundColor: "#F5F5F5",
                       borderRadius: "20px",
-                      width: "283px",
-                      height: "152px",
+                      width: { xs: "100%", sm: "250px", md: "283px" }, // Adjust width based on screen size
+                      height: { xs: "auto", md: "152px" }, // Adjust height dynamically
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -91,7 +92,7 @@ const Contact = () => {
                         variant="body1"
                         sx={{
                           color: "#6D6D6D",
-                          fontSize: "14px",
+                          fontSize: { xs: "12px", sm: "14px" },
                           fontWeight: 400,
                         }}
                       >
@@ -104,13 +105,14 @@ const Contact = () => {
             </Grid>
           </Grid>
 
-          <Grid item xs={12} md={6}>
+          {/* Contact Section */}
+          <Grid item xs={12} md={6} textAlign={{ xs: "center", md: "left" }}>
             <Typography
-              variant="body1"
+              variant="h4"
               gutterBottom
               sx={{
                 color: "#11243F",
-                fontSize: { xs: "35px", md: "45px" },
+                fontSize: { xs: "28px", sm: "35px", md: "45px" }, // Adjust text size dynamically
                 fontWeight: 700,
               }}
             >
@@ -118,7 +120,13 @@ const Contact = () => {
             </Typography>
             <Typography
               variant="body1"
-              sx={{ fontSize: "16px", fontWeight: 400, color: "#525252" }}
+              sx={{
+                fontSize: { xs: "14px", sm: "16px" },
+                fontWeight: 400,
+                color: "#525252",
+                maxWidth: { xs: "100%", md: "80%" }, // Limit width for readability
+                marginX: { xs: "auto", md: "0" }, // Center text on small screens
+              }}
             >
               Our PayZen support team is here to answer your questions and
               assist you. Reach out to us via phone, email, or visit us in
@@ -126,6 +134,7 @@ const Contact = () => {
             </Typography>
           </Grid>
         </Grid>
+
         <Grid
           container
           spacing={0}
