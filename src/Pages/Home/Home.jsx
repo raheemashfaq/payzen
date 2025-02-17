@@ -75,6 +75,24 @@ const Home = () => {
   ];
   const isLargeScreen = useMediaQuery("(min-width: 900px)");
   const isSmallScreen = useMediaQuery("(max-width: 600px)");
+  const transCards = [
+    {
+      title: "Transactions Analytics",
+      image: "/Assets/trans_pic.png",
+    },
+    {
+      title: "Account Login at Different \n Organization levels",
+      image: "/Assets/wallet_pic.png",
+    },
+    {
+      title: "Real Time Payment Intimation",
+      image: "/Assets/login_pic.png",
+    },
+    {
+      title: "Excel Sheets (Download data)",
+      image: "/Assets/excel_pic.png",
+    },
+  ];
   return (
     <>
       <Container>
@@ -173,7 +191,7 @@ const Home = () => {
             <Typography>
               <img src="/Assets/coin.png" alt="" />
             </Typography>
-            <Typography variant="h5" sx={{ color: "#fff" }}>
+            <Typography variant="h5" sx={{ color: "#fff", mb: 3 }}>
               Our Payment Partners
             </Typography>
             <hr style={{ fontSize: "20px", width: "80%" }} />
@@ -183,6 +201,7 @@ const Home = () => {
                 justifyContent: "center",
                 gap: "20px",
                 flexWrap: "wrap",
+                mt: 3,
               }}
             >
               {[
@@ -234,7 +253,11 @@ const Home = () => {
         >
           <Typography
             variant="h4"
-            sx={{ fontSize: "40px", fontWeight: "bold", color: "#11243F" }}
+            sx={{
+              fontSize: { xs: "30px", md: "40px" },
+              fontWeight: "bold",
+              color: "#11243F",
+            }}
           >
             Our Featured Services
           </Typography>
@@ -242,16 +265,23 @@ const Home = () => {
             variant="body2"
             sx={{
               color: "#000",
-              textAlign: { xs: "start", md: "center" },
+              textAlign: { xs: "center", md: "center" },
               color: "#11243F",
             }}
           >
-            PayZen allows you to effortlessly collect payments through a wide
-            range of (ADC) <br />
-            Alternative Delivery Channels, ensuring a smooth experience.
+            {isLargeScreen ? (
+              <>
+                PayZen allows you to effortlessly collect payments through a
+                wide range of (ADC) <br />
+                Alternative Delivery Channels, ensuring a smooth experience.
+              </>
+            ) : (
+              "PayZen allows you to effortlessly collect payments through a wide range of (ADC) Alternative Delivery Channels, ensuring a smooth experience."
+            )}
           </Typography>
           <FeatureCard />
         </Box>
+
         {/* About Us  */}
         <Box
           sx={{
@@ -433,44 +463,47 @@ const Home = () => {
                 alignItems: "center",
               }}
             >
-              {Array(4)
-                .fill()
-                .map((_, index) => (
-                  <Card
-                    key={index}
+              {transCards.map((item, index) => (
+                <Card
+                  key={index}
+                  sx={{
+                    width: { xs: "100%", sm: 400 }, // Full width on small screens
+                    borderRadius: "20px",
+                    mb: 2,
+                  }}
+                >
+                  <CardContent
                     sx={{
-                      width: { xs: "100%", sm: 400 }, // Full width on small screens
-                      borderRadius: "20px",
-                      mb: 2,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "20px",
                     }}
                   >
-                    <CardContent
+                    <Box
                       sx={{
+                        width: "60px",
+                        height: "60px",
+                        borderRadius: "20px",
+                        backgroundColor: "#1253A4",
                         display: "flex",
+                        justifyContent: "center",
                         alignItems: "center",
-                        gap: "20px",
                       }}
                     >
-                      <Box
-                        sx={{
-                          width: "60px",
-                          height: "60px",
-                          borderRadius: "20px",
-                          backgroundColor: "#1253A4",
-                        }}
-                      />
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          fontSize: { xs: "18px", md: "20px" },
-                          fontWeight: "600",
-                        }}
-                      >
-                        Transactions Analytics
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                ))}
+                      <img src={item.image} alt="" />
+                    </Box>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        fontSize: { xs: "16px", md: "18px" },
+                        fontWeight: "600",
+                      }}
+                    >
+                      {item.title}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              ))}
             </Grid>
           </Grid>
         </Box>
@@ -495,7 +528,7 @@ const Home = () => {
               >
                 {isLargeScreen ? (
                   <>
-                    Join Hands with Payzen for <br /> seamless Business <br />{" "}
+                    Join Hands with Payzen <br /> for seamless Business <br />{" "}
                     Transactions
                   </>
                 ) : (
@@ -553,13 +586,14 @@ const Home = () => {
         {/* Chossing Pricing Plan  */}
         <Box
           sx={{
-            padding: { xs: "40px 20px", md: "20px 0" },
+            padding: { xs: "40px 20px", md: "40px 0" },
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
+            gap: "30px",
             background: "linear-gradient(to right, #2D5EA5, #11243F)",
-            textAlign: "center", // Ensures text is centered on mobile
+            textAlign: "center",
           }}
         >
           <Typography
@@ -578,9 +612,9 @@ const Home = () => {
             variant="body1"
             sx={{
               color: "#ffffff",
-              fontSize: { xs: "16px", md: "20px" }, // Adjust font size dynamically
+              fontSize: { xs: "16px", md: "20px" },
               fontWeight: 400,
-              maxWidth: "600px", // Limits text width for readability
+              maxWidth: "600px",
               lineHeight: "28px",
             }}
           >

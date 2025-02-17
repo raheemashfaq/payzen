@@ -63,7 +63,7 @@ const Contact = () => {
 
         <Grid container spacing={4} justifyContent="center" alignItems="center">
           <Grid item xs={12} md={6}>
-            <Grid container spacing={2}>
+            <Grid container spacing={5}>
               {cards.map((item, index) => (
                 <Grid item xs={6} key={index}>
                   <Card
@@ -71,13 +71,20 @@ const Contact = () => {
                       textAlign: "center",
                       padding: "10px",
                       backgroundColor: "#F5F5F5",
+                      borderRadius: "20px",
+                      width: "283px",
+                      height: "152px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexDirection: "column",
                     }}
                   >
                     <CardMedia
                       component="img"
                       image={item.image}
                       alt={item.title}
-                      sx={{ width: "50px", margin: "auto" }}
+                      sx={{ width: "50px", margin: "auto", padding: "10px" }}
                     />
                     <CardContent>
                       <Typography
