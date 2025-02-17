@@ -6,12 +6,11 @@ const HeroSec = () => {
     <Box
       sx={{
         backgroundImage: `url(/Assets/bg.png)`,
+
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        width: "100%",
-        minHeight: "100vh",
-        padding: { xs: "50px 0", md: "20px 0" },
+        padding: { xs: "50px 16px", md: "20px 40px" }, // Responsive padding
         display: "flex",
         alignItems: "center",
       }}
@@ -25,7 +24,7 @@ const HeroSec = () => {
               fontSize: { xs: "28px", sm: "36px", md: "60px" },
               color: "#11243F",
               fontWeight: "bold",
-              textAlign: { xs: "center", md: "left" }, // Centered text on mobile
+              textAlign: { xs: "center", md: "left" },
             }}
           >
             Safe & Hassle-Free

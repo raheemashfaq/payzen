@@ -95,9 +95,9 @@ const Home = () => {
   ];
   return (
     <>
+      <HeroSec />
+      {/* Features Section */}
       <Container>
-        <HeroSec />
-        {/* Features Section */}
         <Box
           sx={{
             padding: { xs: "40px 20px", md: "20px 0" },
@@ -176,70 +176,73 @@ const Home = () => {
             </Grid>
           </Grid>
         </Box>
-        {/* Payment Partners */}
-        <Box sx={{ padding: "0 0" }}>
+      </Container>
+      {/* Payment Partners */}
+      <Box sx={{ padding: "0 0" }}>
+        <Box
+          sx={{
+            bgcolor: "#11243F",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            padding: "20px 0",
+          }}
+        >
+          <Typography>
+            <img src="/Assets/coin.png" alt="" />
+          </Typography>
+          <Typography variant="h5" sx={{ color: "#fff", mb: 3 }}>
+            Our Payment Partners
+          </Typography>
+          <hr style={{ fontSize: "20px", width: "80%" }} />
           <Box
             sx={{
-              bgcolor: "#11243F",
               display: "flex",
               justifyContent: "center",
-              alignItems: "center",
-              flexDirection: "column",
-              padding: "20px 0",
+              gap: "20px",
+              flexWrap: "wrap",
+              mt: 3,
             }}
           >
-            <Typography>
-              <img src="/Assets/coin.png" alt="" />
-            </Typography>
-            <Typography variant="h5" sx={{ color: "#fff", mb: 3 }}>
-              Our Payment Partners
-            </Typography>
-            <hr style={{ fontSize: "20px", width: "80%" }} />
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                gap: "20px",
-                flexWrap: "wrap",
-                mt: 3,
-              }}
-            >
-              {[
-                "jazz.png",
-                "ubl.png",
-                "MasterCard.png",
-                "one.png",
-                "union.png",
-                "visa-logo.png",
-                "hbl.png",
-                "mcb.png",
-                "omni.png",
-                "easypaisa.png",
-              ].map((partner, index) => (
-                <Card
-                  key={index}
-                  sx={{
-                    width: "140px",
-                    height: "90px",
-                    borderRadius: "10px",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <CardMedia
-                    component="img"
-                    image={`/Assets/${partner}`}
-                    alt={partner.split(".")[0]}
-                    sx={{ width: "80%", height: "80%", objectFit: "contain" }}
-                  />
-                </Card>
-              ))}
-            </Box>
+            {[
+              "jazz.png",
+              "ubl.png",
+              "MasterCard.png",
+              "one.png",
+              "union.png",
+              "visa-logo.png",
+              "hbl.png",
+              "mcb.png",
+              "omni.png",
+              "easypaisa.png",
+            ].map((partner, index) => (
+              <Card
+                key={index}
+                sx={{
+                  width: "140px",
+                  height: "90px",
+                  borderRadius: "10px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  image={`/Assets/${partner}`}
+                  alt={partner.split(".")[0]}
+                  sx={{ width: "80%", height: "80%", objectFit: "contain" }}
+                />
+              </Card>
+            ))}
           </Box>
         </Box>
-        {/* Unique Benefits */}
+      </Box>
+      {/* Unique Benefits */}
+      <Container>
         <Unique />
+
         {/* Features Services */}
 
         <Box
@@ -281,70 +284,70 @@ const Home = () => {
           </Typography>
           <FeatureCard />
         </Box>
+      </Container>
+      {/* About Us  */}
 
-        {/* About Us  */}
-        <Box
+      <Box
+        sx={{
+          padding: { xs: "40px 20px", md: "60px 0" },
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+          background: "linear-gradient(to right, #11243F, #2D5EA5)",
+        }}
+      >
+        <Typography
+          variant="h3"
           sx={{
-            padding: { xs: "40px 20px", md: "60px 0" },
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "column",
-            background: "linear-gradient(to right, #11243F, #2D5EA5)",
+            color: "#ffffff",
+            marginBottom: "20px",
+            fontSize: { xs: "28px", md: "40px" }, // Adjust heading size for mobile
+            fontWeight: "bold",
+            textAlign: "center",
           }}
         >
-          <Typography
-            variant="h3"
-            sx={{
-              color: "#ffffff",
-              marginBottom: "20px",
-              fontSize: { xs: "28px", md: "40px" }, // Adjust heading size for mobile
-              fontWeight: "bold",
-              textAlign: "center",
-            }}
-          >
-            About Us
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              color: "#ffffff",
-              maxWidth: "800px",
-              lineHeight: "28px",
-              fontSize: { xs: "14px", md: "17px" }, // Smaller font on mobile
-              paddingX: { xs: 2, md: 0 }, // Padding for mobile readability
-              textAlign: { sm: "start", md: "center" },
-            }}
-          >
-            PayZen is backed by the Punjab Information Technology Board,
-            ensuring top-notch security and reliability. Our platform combines
-            cutting-edge technology with robust support to deliver an
-            exceptional payment experience. We provide an all-encompassing
-            solution empowering your business to effortlessly generate digital
-            invoices, facilitate seamless digital payments, and efficiently
-            oversee cash flows - all through a streamlined and convenient
-            web-based solution.
-          </Typography>
-          <Button
-            variant="outlined"
-            size="large"
-            sx={{
-              padding: { xs: "8px 16px", md: "12px 24px" },
-              marginTop: "20px",
-              borderRadius: "30px",
-              color: "white",
-              borderColor: "white",
-              fontSize: { xs: "14px", md: "16px" }, // Adjust button text size
-            }}
-          >
-            Get Started
-          </Button>
-        </Box>
-        {/* RealTime Reporting  */}
+          About Us
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            color: "#ffffff",
+            maxWidth: "800px",
+            lineHeight: "28px",
+            fontSize: { xs: "14px", md: "17px" }, // Smaller font on mobile
+            paddingX: { xs: 2, md: 0 }, // Padding for mobile readability
+            textAlign: { sm: "start", md: "center" },
+          }}
+        >
+          PayZen is backed by the Punjab Information Technology Board, ensuring
+          top-notch security and reliability. Our platform combines cutting-edge
+          technology with robust support to deliver an exceptional payment
+          experience. We provide an all-encompassing solution empowering your
+          business to effortlessly generate digital invoices, facilitate
+          seamless digital payments, and efficiently oversee cash flows - all
+          through a streamlined and convenient web-based solution.
+        </Typography>
+        <Button
+          variant="outlined"
+          size="large"
+          sx={{
+            padding: { xs: "8px 16px", md: "12px 24px" },
+            marginTop: "20px",
+            borderRadius: "30px",
+            color: "white",
+            borderColor: "white",
+            fontSize: { xs: "14px", md: "16px" }, // Adjust button text size
+          }}
+        >
+          Get Started
+        </Button>
+      </Box>
+      {/* RealTime Reporting  */}
+      <Container>
         <Box
           sx={{
             padding: { xs: "40px 20px", md: "20px 0" },
-            backgroundColor: "#EFF2F773",
           }}
         >
           <Grid container spacing={5} alignItems="center">
@@ -357,7 +360,7 @@ const Home = () => {
               <Typography
                 variant="h3"
                 sx={{
-                  fontSize: { xs: "28px", md: "50px" },
+                  fontSize: { xs: "28px", sm: "32px", md: "50px" },
                   color: "#11243F",
                   fontWeight: "700",
                 }}
@@ -374,9 +377,9 @@ const Home = () => {
 
               <Card
                 sx={{
-                  margin: { xs: "60px auto", md: "40px 0" },
-                  maxWidth: 400,
-                  padding: "20px",
+                  margin: { xs: "60px auto", md: "80px 0" },
+                  width: "390px",
+                  height: "258px",
                   backgroundColor: "#11243F",
                   borderRadius: "17px",
                   position: "relative",
@@ -390,7 +393,7 @@ const Home = () => {
                   style={{
                     position: "absolute",
                     width: "60%",
-                    top: { xs: "0", md: "-80px" },
+                    top: "-80px",
                     right: "-20px",
                   }}
                 />
@@ -418,9 +421,9 @@ const Home = () => {
                     }}
                   >
                     <img
-                      src=""
+                      src="/Assets/tick.png"
                       alt=""
-                      style={{ width: "40px", height: "40px" }}
+                      style={{ width: "23.1px", height: "16.9px" }}
                     />
                   </Box>
 
@@ -428,7 +431,7 @@ const Home = () => {
                     variant="body1"
                     sx={{
                       fontSize: "16px",
-                      fontWeight: "bold",
+                      fontWeight: "600",
                       color: "#fff",
                       mt: 2,
                     }}
@@ -437,11 +440,12 @@ const Home = () => {
                   </Typography>
 
                   <Typography
-                    variant="body2"
+                    variant="body1"
                     sx={{
                       fontWeight: "400",
                       color: "#fff",
-                      lineHeight: { sm: "16px", md: "24px" },
+                      lineHeight: { sm: "16px", md: "17.77px" },
+                      fontsize: "12.44px",
                       mt: 1,
                     }}
                   >
@@ -583,60 +587,62 @@ const Home = () => {
             </Grid>
           </Grid>
         </Box>
-        {/* Chossing Pricing Plan  */}
-        <Box
+      </Container>
+      {/* Chossing Pricing Plan  */}
+      <Box
+        sx={{
+          padding: { xs: "40px 20px", md: "40px 0" },
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+          gap: "30px",
+          background: "linear-gradient(to right, #2D5EA5, #11243F)",
+          textAlign: "center",
+        }}
+      >
+        <Typography
+          variant="h3"
           sx={{
-            padding: { xs: "40px 20px", md: "40px 0" },
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "column",
-            gap: "30px",
-            background: "linear-gradient(to right, #2D5EA5, #11243F)",
-            textAlign: "center",
+            color: "#ffffff",
+            fontSize: { xs: "30px", md: "45px" }, // Adjust heading size for mobile
+            fontWeight: 700,
+            marginBottom: "15px",
           }}
         >
-          <Typography
-            variant="h3"
-            sx={{
-              color: "#ffffff",
-              fontSize: { xs: "30px", md: "45px" }, // Adjust heading size for mobile
-              fontWeight: 700,
-              marginBottom: "15px",
-            }}
-          >
-            Choose Pricing Plan
-          </Typography>
+          Choose Pricing Plan
+        </Typography>
 
-          <Typography
-            variant="body1"
-            sx={{
-              color: "#ffffff",
-              fontSize: { xs: "16px", md: "20px" },
-              fontWeight: 400,
-              maxWidth: "600px",
-              lineHeight: "28px",
-            }}
-          >
-            Contact Us for a Customized Pricing Plan for Your Business
-          </Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            color: "#ffffff",
+            fontSize: { xs: "16px", md: "20px" },
+            fontWeight: 400,
+            maxWidth: "600px",
+            lineHeight: "28px",
+          }}
+        >
+          Contact Us for a Customized Pricing Plan for Your Business
+        </Typography>
 
-          <Button
-            variant="outlined"
-            size="large"
-            sx={{
-              padding: { xs: "10px 20px", md: "12px 24px" }, // Responsive padding
-              marginTop: "20px",
-              borderRadius: "30px",
-              color: "white",
-              borderColor: "white",
-              fontSize: { xs: "14px", md: "16px" }, // Adjust button font size
-            }}
-          >
-            Get Pricing
-          </Button>
-        </Box>
-        {/* Our Clients About Us  */}
+        <Button
+          variant="outlined"
+          size="large"
+          sx={{
+            padding: { xs: "10px 20px", md: "12px 24px" }, // Responsive padding
+            marginTop: "20px",
+            borderRadius: "30px",
+            color: "white",
+            borderColor: "white",
+            fontSize: { xs: "14px", md: "16px" }, // Adjust button font size
+          }}
+        >
+          Get Pricing
+        </Button>
+      </Box>
+      {/* Our Clients About Us  */}
+      <Container>
         <Box
           sx={{
             padding: { xs: "40px 20px", md: "20px 0" },
@@ -809,156 +815,158 @@ const Home = () => {
             </Stepper>
           </Box>
         </Box>
-        {/* Apps Downloads  */}
-        <Box
-          sx={{ position: "relative", overflow: "hidden", padding: "50px 0" }}
-        >
-          <Grid container alignItems="center" justifyContent="center">
-            <Grid
-              item
-              xs={12}
-              md={6}
+      </Container>
+      {/* Apps Downloads  */}
+      <Box sx={{ position: "relative", overflow: "hidden", padding: "50px 0" }}>
+        <Grid container alignItems="center" justifyContent="center">
+          <Grid
+            item
+            xs={12}
+            md={6}
+            sx={{
+              backgroundColor: "#11243F",
+              padding: { xs: 3, md: 4 },
+              borderRadius: { xs: "20px", md: "0 50px 50px 0" },
+              maxWidth: "900px",
+              height: { xs: "auto", md: "450px" },
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: { xs: "center", md: "flex-start" },
+              textAlign: { xs: "center", md: "left" },
+              position: "relative",
+              zIndex: 2,
+            }}
+          >
+            <Typography
               sx={{
-                backgroundColor: "#11243F",
-                padding: { xs: 3, md: 4 },
-                borderRadius: { xs: "20px", md: "0 50px 50px 0" },
-                maxWidth: "900px",
-                height: { xs: "auto", md: "450px" },
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: { xs: "center", md: "flex-start" },
-                textAlign: { xs: "center", md: "left" },
-                position: "relative",
-                zIndex: 2,
+                fontSize: { xs: "24px", md: "32px" },
+                fontWeight: 700,
+                color: "#ffffff",
+                marginBottom: "10px",
               }}
             >
-              <Typography
-                sx={{
-                  fontSize: { xs: "24px", md: "32px" },
-                  fontWeight: 700,
-                  color: "#ffffff",
-                  marginBottom: "10px",
-                }}
-              >
-                Coming Soon....
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: { xs: "24px", md: "32px" },
-                  fontWeight: 700,
-                  color: "#ffffff",
-                }}
-              >
-                Download Our Mobile App <br /> To Get All Features Of <br />
-                PAYZEN
-              </Typography>
+              Coming Soon....
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: { xs: "24px", md: "32px" },
+                fontWeight: 700,
+                color: "#ffffff",
+              }}
+            >
+              Download Our Mobile App <br /> To Get All Features Of <br />
+              PAYZEN
+            </Typography>
 
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: { xs: "column", sm: "row" },
+                alignItems: "center",
+                gap: "16px",
+                marginTop: "20px",
+              }}
+            >
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: "#ffffff",
+                  color: "#000",
+                  borderRadius: "30px",
+                  padding: { xs: "8px 16px", md: "12px 24px" },
+                  border: "1px solid #11243F",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  textTransform: "none",
+                  fontSize: { xs: "14px", md: "16px" },
+                }}
+              >
+                <img
+                  src="/Assets/apple.png"
+                  alt="Apple Store"
+                  style={{ width: "20px" }}
+                />
+                Download Now
+              </Button>
+
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: "#ffffff",
+                  color: "#000",
+                  borderRadius: "30px",
+                  padding: { xs: "8px 16px", md: "12px 24px" },
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  textTransform: "none",
+                  fontSize: { xs: "14px", md: "16px" },
+                }}
+              >
+                <img
+                  src="/Assets/playstore.png"
+                  alt="Play Store"
+                  style={{ width: "20px" }}
+                />
+                Download Now
+              </Button>
+            </Box>
+          </Grid>
+
+          <Grid
+            item
+            xs={12}
+            md={6}
+            sx={{
+              position: "relative",
+              maxWidth: "900px",
+              height: { xs: "auto", md: "450px" },
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: { xs: "30px", md: 0 },
+            }}
+          >
+            {!isLargeScreen && (
               <Box
                 sx={{
-                  display: "flex",
-                  flexDirection: { xs: "column", sm: "row" },
-                  alignItems: "center",
-                  gap: "16px",
-                  marginTop: "20px",
+                  position: "absolute",
+                  right: "-80px",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  width: "700px",
+                  height: "100%",
+                  background:
+                    "radial-gradient(circle at center, #ffffff 0%, #F3F3F3 100%)",
+                  clipPath: "ellipse(50% 70% at 50% 50%)",
                 }}
-              >
-                <Button
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "#ffffff",
-                    color: "#000",
-                    borderRadius: "30px",
-                    padding: { xs: "8px 16px", md: "12px 24px" },
-                    border: "1px solid #11243F",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    textTransform: "none",
-                    fontSize: { xs: "14px", md: "16px" },
-                  }}
-                >
-                  <img
-                    src="/Assets/apple.png"
-                    alt="Apple Store"
-                    style={{ width: "20px" }}
-                  />
-                  Download Now
-                </Button>
+              ></Box>
+            )}
 
-                <Button
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "#ffffff",
-                    color: "#000",
-                    borderRadius: "30px",
-                    padding: { xs: "8px 16px", md: "12px 24px" },
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    textTransform: "none",
-                    fontSize: { xs: "14px", md: "16px" },
-                  }}
-                >
-                  <img
-                    src="/Assets/playstore.png"
-                    alt="Play Store"
-                    style={{ width: "20px" }}
-                  />
-                  Download Now
-                </Button>
-              </Box>
-            </Grid>
-
-            <Grid
-              item
-              xs={12}
-              md={6}
-              sx={{
+            <img
+              src="/Assets/iPhone 13 Pro.png"
+              alt="Hero"
+              style={{
+                width: "100%",
+                maxWidth: "600px",
+                height: "auto",
                 position: "relative",
-                maxWidth: "900px",
-                height: { xs: "auto", md: "450px" },
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                marginTop: { xs: "30px", md: 0 },
+                zIndex: 3,
               }}
-            >
-              {!isLargeScreen && (
-                <Box
-                  sx={{
-                    position: "absolute",
-                    right: "-80px",
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    width: "700px",
-                    height: "100%",
-                    background:
-                      "radial-gradient(circle at center, #ffffff 0%, #F3F3F3 100%)",
-                    clipPath: "ellipse(50% 70% at 50% 50%)",
-                  }}
-                ></Box>
-              )}
-
-              <img
-                src="/Assets/iPhone 13 Pro.png"
-                alt="Hero"
-                style={{
-                  width: "100%",
-                  maxWidth: "600px",
-                  height: "auto",
-                  position: "relative",
-                  zIndex: 3,
-                }}
-              />
-            </Grid>
+            />
           </Grid>
-        </Box>
-        {/* FAQ'S  */}
+        </Grid>
+      </Box>
+      {/* FAQ'S  */}
+      <Container>
         <AskQuestions />
-        {/* Secutity Checkup  */}
-        <SecuritySupport />
-        {/* News and Blogs  */}
+      </Container>
+      {/* Secutity Checkup  */}
+      <SecuritySupport />
+      {/* News and Blogs  */}
+      <Container>
         <Box
           sx={{
             display: "flex",
@@ -1140,8 +1148,8 @@ const Home = () => {
             </Grid>
           </Grid>
         </Box>
-        {/* Follow Us  */}
       </Container>
+      {/* Follow Us  */}
     </>
   );
 };

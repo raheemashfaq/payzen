@@ -14,10 +14,10 @@ const Footer = () => {
   return (
     <>
       <Container>
-        <Box sx={{ padding: "20px 0" }}>
+        <Box sx={{ padding: "40px 0" }}>
           <Grid
             container
-            spacing={2}
+            spacing={{ sm: 0, md: 0 }}
             sx={{
               minHeight: "300px",
               backgroundImage: `url('/Assets/follow_bg.png')`,

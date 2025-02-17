@@ -37,7 +37,8 @@ const FeatureCard = () => {
             <Card
               key={index}
               sx={{
-                width: "300",
+                width: "337px",
+                height: "230px",
                 margin: "20px",
                 borderRadius: "10px",
                 border: "4px solid #F3F3F3",
@@ -45,12 +46,10 @@ const FeatureCard = () => {
             >
               <CardContent
                 sx={{
-                  border: "2px solid #F3F3F3",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
                   gap: "10px",
-
                   alignItems: "center",
                 }}
               >
