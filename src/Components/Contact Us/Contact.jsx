@@ -65,7 +65,7 @@ const Contact = () => {
           <Grid item xs={12} md={6}>
             <Grid container spacing={5}>
               {cards.map((item, index) => (
-                <Grid item xs={6} key={index}>
+                <Grid item xs={12} key={index}>
                   <Card
                     sx={{
                       textAlign: "center",
