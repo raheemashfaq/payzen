@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Container,
+  Divider,
   Grid,
   TextField,
   Typography,
@@ -20,10 +21,10 @@ const Footer = () => {
             spacing={{ sm: 0, md: 0 }}
             sx={{
               minHeight: "300px",
-              backgroundImage: `url('/Assets/follow_bg.png')`,
+              backgroundImage: `url('/Assets/footer_bg.png')`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
-              backgroundColor: "black",
+              backgroundColor: "#fff",
               padding: { xs: "30px", md: "50px" },
               borderRadius: "10px",
               margin: "0 auto",
@@ -138,122 +139,141 @@ const Footer = () => {
           <Grid
             container
             spacing={2}
-            sx={{ maxWidth: "1200px", margin: "auto" }}
+            sx={{ maxWidth: "1200px", margin: "auto", position: "relative" }}
           >
-            <Grid item xs={12} md={3} sx={{ pr: 2 }}>
-              <Link to="/">
-                <Box sx={{ display: "flex", alignItems: "center", gap: "5px" }}>
-                  <img
-                    src="/Assets/coin.png"
-                    alt="logo"
-                    style={{ width: "40px", height: "40px" }}
-                  />
-                  <img
-                    style={{ height: "30px" }}
-                    src="/Assets/plogo.png"
-                    alt="PayZen"
-                  />
-                </Box>
-              </Link>
-              <Typography
-                variant="body2"
-                sx={{
-                  fontSize: "14px",
-                  fontWeight: "500",
-                  color: "#555",
-                  marginTop: "8px",
-                }}
+            {[
+              {
+                content: (
+                  <>
+                    <Link to="/">
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "5px",
+                        }}
+                      >
+                        <img
+                          src="/Assets/coin.png"
+                          alt="logo"
+                          style={{ width: "40px", height: "40px" }}
+                        />
+                        <img
+                          style={{ height: "30px" }}
+                          src="/Assets/plogo.png"
+                          alt="PayZen"
+                        />
+                      </Box>
+                    </Link>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        fontSize: "14px",
+                        fontWeight: "500",
+                        color: "#555",
+                        marginTop: "8px",
+                      }}
+                    >
+                      SAFE | HASSLE-FREE PAYMENT COLLECTIONS
+                    </Typography>
+                  </>
+                ),
+              },
+              {
+                title: "Quick Links",
+                links: ["About Us", "Vision", "Payment Channels"],
+              },
+              {
+                title: "Support",
+                links: ["Contact Us", "Terms and Conditions", "FAQs"],
+              },
+              {
+                title: "Reach Us",
+                contact: [
+                  {
+                    icon: <Phone sx={{ color: "#555", fontSize: "20px" }} />,
+                    text: "+92-42-99000000 | Ext: 1209",
+                  },
+                  {
+                    icon: <Email sx={{ color: "#555", fontSize: "20px" }} />,
+                    text: "info@payzen.pk",
+                  },
+                  {
+                    icon: (
+                      <LocationOn sx={{ color: "#555", fontSize: "20px" }} />
+                    ),
+                    text: "12th Floor, Arfa Software Technology Park, Lahore, Punjab 54000",
+                  },
+                ],
+              },
+            ].map((section, index) => (
+              <Grid
+                item
+                xs={12}
+                md={3}
+                sx={{ pr: 2, position: "relative" }}
+                key={index}
               >
-                SAFE | HASSLE-FREE PAYMENT COLLECTIONS
-              </Typography>
-            </Grid>
-
-            <Grid item xs={12} md={3} sx={{ pr: 2 }}>
-              <Typography
-                variant="h6"
-                sx={{ fontSize: "16px", fontWeight: "600", color: "#333" }}
-              >
-                Quick Links
-              </Typography>
-              {["About Us", "Vision", "Payment Channels"].map((link, index) => (
-                <Typography
-                  key={index}
-                  variant="body2"
-                  sx={{ color: "#555", cursor: "pointer", mt: 1 }}
-                >
-                  {link}
-                </Typography>
-              ))}
-            </Grid>
-
-            <Grid item xs={12} md={3} sx={{ pr: 2 }}>
-              <Typography
-                variant="h6"
-                sx={{ fontSize: "16px", fontWeight: "600", color: "#333" }}
-              >
-                Support
-              </Typography>
-              {["Contact Us", "Terms and Conditions", "FAQs"].map(
-                (link, index) => (
+                {section.title && (
                   <Typography
-                    key={index}
-                    variant="body2"
-                    sx={{ color: "#555", cursor: "pointer", mt: 1 }}
+                    variant="h6"
+                    sx={{ fontSize: "16px", fontWeight: "600", color: "#333" }}
                   >
-                    {link}
+                    {section.title}
                   </Typography>
-                )
-              )}
-            </Grid>
+                )}
+                {section.links &&
+                  section.links.map((link, idx) => (
+                    <Typography
+                      key={idx}
+                      variant="body2"
+                      sx={{ color: "#555", cursor: "pointer", mt: 1 }}
+                    >
+                      {link}
+                    </Typography>
+                  ))}
+                {section.contact &&
+                  section.contact.map((item, idx) => (
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        mt: 1,
+                      }}
+                      key={idx}
+                    >
+                      {item.icon}
+                      <Typography variant="body2" sx={{ color: "#555" }}>
+                        {item.text}
+                      </Typography>
+                    </Box>
+                  ))}
+                {section.content && section.content}
 
-            <Grid item xs={12} md={3}>
-              <Typography
-                variant="h6"
-                sx={{ fontSize: "16px", fontWeight: "600", color: "#333" }}
-              >
-                Reach Us
-              </Typography>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  mt: 1,
-                }}
-              >
-                <Phone sx={{ color: "#555", fontSize: "20px" }} />
-                <Typography variant="body2" sx={{ color: "#555" }}>
-                  +92-42-99000000 | Ext: 1209
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  mt: 1,
-                }}
-              >
-                <Email sx={{ color: "#555", fontSize: "20px" }} />
-                <Typography variant="body2" sx={{ color: "#555" }}>
-                  info@payzen.pk
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  mt: 1,
-                }}
-              >
-                <LocationOn sx={{ color: "#555", fontSize: "20px" }} />
-                <Typography variant="body2" sx={{ color: "#555" }}>
-                  12th Floor, Arfa Software Technology Park, Lahore, Punjab
-                  54000
-                </Typography>
-              </Box>
-            </Grid>
+                {/* Horizontal Divider for Small Screens */}
+                {index < 3 && (
+                  <Divider
+                    sx={{ display: { xs: "block", md: "none" }, my: 2 }}
+                  />
+                )}
+
+                {/* Vertical Divider for Large Screens */}
+                {index < 3 && (
+                  <Divider
+                    orientation="vertical"
+                    flexItem
+                    sx={{
+                      display: { xs: "none", md: "block" },
+                      position: "absolute",
+                      right: 0,
+                      top: 0,
+                      height: "100%",
+                    }}
+                  />
+                )}
+              </Grid>
+            ))}
           </Grid>
         </Box>
       </Container>

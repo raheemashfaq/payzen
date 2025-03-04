@@ -5,9 +5,7 @@ import { Box, Button, Container, Grid, Typography } from "@mui/material";
 const About = () => {
   return (
     <>
-      <Container>
-        <HeroSec />
-      </Container>
+      <HeroSec />
 
       <Box
         component="img"

@@ -30,6 +30,9 @@ import FeatureCard from "../../Components/RepeatedFiles/FeatureCards/FeatureCard
 import Unique from "../../Components/RepeatedFiles/UniqueBenefit/Unique";
 import SecuritySupport from "../../Components/RepeatedFiles/SecuritySupport/SecuritySupport";
 import AskQuestions from "../../Components/RepeatedFiles/AskQuestions/AskQuestions";
+// import TestimonialCarousel from "./TestimonialCarousel";
+import SlickSlider from "./SlickSlider";
+// import TestimonialCarousel from "./TestimonialCarousel";
 
 const CustomMobileStepper = styled(MobileStepper)(({ theme }) => ({
   "& .MuiMobileStepper-dots": {
@@ -92,6 +95,12 @@ const Home = () => {
       title: "Excel Sheets (Download data)",
       image: "/Assets/excel_pic.png",
     },
+  ];
+  const Steps = [
+    { id: 1, text: "Log in to your Online <br /> Banking portal" },
+    { id: 2, text: "Select Payment <br /> option" },
+    { id: 3, text: "Enter PSID <br /> Number" },
+    { id: 4, text: "Confirm details and Payment <br /> is done" },
   ];
   return (
     <>
@@ -375,86 +384,17 @@ const Home = () => {
                 )}
               </Typography>
 
-              <Card
+              <Box
+                component="img"
+                src="/Assets/left_card.png"
+                alt="Description"
                 sx={{
-                  margin: { xs: "60px auto", md: "80px 0" },
-                  width: "390px",
-                  height: "258px",
-                  backgroundColor: "#11243F",
-                  borderRadius: "17px",
-                  position: "relative",
-                  overflow: "visible",
-                  textAlign: "left",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "contain",
+                  // marginTop: "20px",
                 }}
-              >
-                <img
-                  src="/Assets/realimeCard.png"
-                  alt=""
-                  style={{
-                    position: "absolute",
-                    width: "60%",
-                    top: "-80px",
-                    right: "-20px",
-                  }}
-                />
-                <img
-                  src="/Assets/realimeCard1.png"
-                  alt=""
-                  style={{
-                    position: "absolute",
-                    width: "40%",
-                    bottom: "-90px",
-                    right: "10px",
-                  }}
-                />
-
-                <CardContent>
-                  <Box
-                    sx={{
-                      borderRadius: "50%",
-                      backgroundColor: "#00A556",
-                      width: "60px",
-                      height: "60px",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <img
-                      src="/Assets/tick.png"
-                      alt=""
-                      style={{ width: "23.1px", height: "16.9px" }}
-                    />
-                  </Box>
-
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      fontSize: "16px",
-                      fontWeight: "600",
-                      color: "#fff",
-                      mt: 2,
-                    }}
-                  >
-                    Real Time Payment Intimation
-                  </Typography>
-
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      fontWeight: "400",
-                      color: "#fff",
-                      lineHeight: { sm: "16px", md: "17.77px" },
-                      fontsize: "12.44px",
-                      mt: 1,
-                    }}
-                  >
-                    Stay informed with real-time updates on all transactions.
-                    Our system provides instant notifications, ensuring you’re
-                    always aware of your financial activity as it happens.
-                  </Typography>
-                </CardContent>
-              </Card>
+              />
             </Grid>
 
             <Grid
@@ -597,8 +537,13 @@ const Home = () => {
           alignItems: "center",
           flexDirection: "column",
           gap: "30px",
-          background: "linear-gradient(to right, #2D5EA5, #11243F)",
+          backgroundImage: "url(/Assets/price_plan_bg.png)",
+          backgroundPosition: "center",
+          backgroundSize: "center",
+          backgroundRepeat: "no-repeat",
           textAlign: "center",
+          width: "100%",
+          height: "607px",
         }}
       >
         <Typography
@@ -665,72 +610,7 @@ const Home = () => {
             What Our Clients Say About Us
           </Typography>
 
-          <Grid container spacing={5} justifyContent="center">
-            {clientCards.map((client, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
-                <Card
-                  sx={{
-                    position: "relative",
-                    maxWidth: 300,
-                    padding: "20px",
-                    borderRadius: "20px",
-                    backgroundColor: index % 2 === 0 ? "#11243F" : "#1253A4",
-                    boxShadow:
-                      index % 2 === 0
-                        ? "10px 10px 15px rgba(17, 36, 63, 0.7)"
-                        : "10px 10px 15px rgba(18, 83, 164, 0.7)",
-                    transform:
-                      index % 2 === 0 ? "rotate(8deg)" : "rotate(-8deg)",
-                    transition: "transform 0.3s ease-in-out",
-                    "&:hover": {
-                      transform: "rotate(0deg) scale(1.05)",
-                      boxShadow: "15px 15px 20px rgba(0, 0, 0, 0.3)",
-                    },
-                  }}
-                >
-                  <Box
-                    sx={{
-                      position: "absolute",
-                      width: "100%",
-                      height: "100%",
-                      borderRadius: "20px",
-                      backgroundColor: "#FAFAFA",
-                      top: "10px",
-                      left: "10px",
-                      zIndex: -1,
-                      transform: "rotate(2deg)",
-                    }}
-                  />
-                  <CardContent sx={{ textAlign: "center" }}>
-                    <Typography sx={{ fontWeight: "bold", fontSize: "18px" }}>
-                      {client.title}
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: "30px",
-                        fontWeight: "bold",
-                        color: "#0F2244",
-                        margin: "5px 0",
-                      }}
-                    >
-                      “
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: "14px",
-                        color: "#555",
-                        lineHeight: "1.5",
-                        whiteSpace: "pre-line",
-                      }}
-                    >
-                      {client.description}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-
+          <SlickSlider />
           <CustomMobileStepper
             variant="dots"
             steps={clientCards.length}
@@ -747,6 +627,7 @@ const Home = () => {
         {/* Payment Methods  */}
         <Box
           sx={{
+            gap: "20px",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -788,177 +669,257 @@ const Home = () => {
               paddingX: "10px",
             }}
           >
-            <Stepper activeStep={0} alternativeLabel sx={{ flexWrap: "wrap" }}>
-              {steps.map((label, index) => (
-                <Step key={index}>
-                  <StepLabel
+            <Grid
+              container
+              spacing={2}
+              justifyContent="center"
+              alignItems="center"
+              sx={{ position: "relative" }}
+            >
+              {Steps.map((step, index) => (
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  md={3}
+                  key={step.id}
+                  sx={{
+                    position: "relative",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  {/* Numbered Circle */}
+                  <Box
                     sx={{
-                      whiteSpace: "pre-line",
-                      "& .MuiStepIcon-root": {
-                        width: { xs: "30px", md: "40px" },
-                        height: { xs: "30px", md: "40px" },
-                      },
-                      "& .MuiStepConnector-line": {
-                        minHeight: "3px",
-                      },
-                      "& .MuiStepLabel-label": {
-                        fontSize: { xs: "14px", md: "18px" },
-                        fontWeight: "bold",
-                        textAlign: "center",
-                      },
+                      border: "20px solid #D9D9D9",
+                      background: "#1253A4",
+                      borderRadius: "50%",
+                      width: "161px",
+                      height: "157px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      color: "#fff",
+                      fontSize: "55px",
+                      fontWeight: "700",
                     }}
                   >
-                    {label}
-                  </StepLabel>
-                </Step>
+                    {step.id}
+                  </Box>
+
+                  {/* Step Description */}
+                  <Typography
+                    dangerouslySetInnerHTML={{ __html: step.text }}
+                    sx={{ textAlign: "center", mt: 1 }}
+                  />
+
+                  {index !== steps.length - 1 && (
+                    <img
+                      src="/Assets/aroow.png"
+                      alt="Arrow"
+                      style={{
+                        position: "absolute",
+                        right: "-70px",
+                        top: "50%",
+                        transform: "translateY(-50%)",
+                        width: "119px",
+                        height: "auto",
+                        display: window.innerWidth < 768 ? "none" : "block",
+                        zIndex: 1,
+                      }}
+                    />
+                  )}
+                </Grid>
               ))}
-            </Stepper>
+            </Grid>
           </Box>
         </Box>
       </Container>
       {/* Apps Downloads  */}
-      <Box sx={{ position: "relative", overflow: "hidden", padding: "50px 0" }}>
-        <Grid container alignItems="center" justifyContent="center">
+      <Container>
+        <Box
+          sx={{
+            padding: { xs: "30px 0", sm: "40px 0", md: "50px 0" }, // Responsive padding
+            backgroundImage: "url(/Assets/bg_left_right.png)",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: { xs: "cover", md: "contain" }, // Responsive background
+          }}
+        >
           <Grid
-            item
-            xs={12}
-            md={6}
-            sx={{
-              backgroundColor: "#11243F",
-              padding: { xs: 3, md: 4 },
-              borderRadius: { xs: "20px", md: "0 50px 50px 0" },
-              maxWidth: "900px",
-              height: { xs: "auto", md: "450px" },
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: { xs: "center", md: "flex-start" },
-              textAlign: { xs: "center", md: "left" },
-              position: "relative",
-              zIndex: 2,
-            }}
+            container
+            spacing={2}
+            justifyContent="center"
+            alignItems="stretch"
           >
-            <Typography
-              sx={{
-                fontSize: { xs: "24px", md: "32px" },
-                fontWeight: 700,
-                color: "#ffffff",
-                marginBottom: "10px",
-              }}
-            >
-              Coming Soon....
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: { xs: "24px", md: "32px" },
-                fontWeight: 700,
-                color: "#ffffff",
-              }}
-            >
-              Download Our Mobile App <br /> To Get All Features Of <br />
-              PAYZEN
-            </Typography>
-
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", sm: "row" },
-                alignItems: "center",
-                gap: "16px",
-                marginTop: "20px",
-              }}
-            >
-              <Button
-                variant="contained"
-                sx={{
-                  backgroundColor: "#ffffff",
-                  color: "#000",
-                  borderRadius: "30px",
-                  padding: { xs: "8px 16px", md: "12px 24px" },
-                  border: "1px solid #11243F",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  textTransform: "none",
-                  fontSize: { xs: "14px", md: "16px" },
-                }}
-              >
-                <img
-                  src="/Assets/apple.png"
-                  alt="Apple Store"
-                  style={{ width: "20px" }}
-                />
-                Download Now
-              </Button>
-
-              <Button
-                variant="contained"
-                sx={{
-                  backgroundColor: "#ffffff",
-                  color: "#000",
-                  borderRadius: "30px",
-                  padding: { xs: "8px 16px", md: "12px 24px" },
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  textTransform: "none",
-                  fontSize: { xs: "14px", md: "16px" },
-                }}
-              >
-                <img
-                  src="/Assets/playstore.png"
-                  alt="Play Store"
-                  style={{ width: "20px" }}
-                />
-                Download Now
-              </Button>
-            </Box>
-          </Grid>
-
-          <Grid
-            item
-            xs={12}
-            md={6}
-            sx={{
-              position: "relative",
-              maxWidth: "900px",
-              height: { xs: "auto", md: "450px" },
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              marginTop: { xs: "30px", md: 0 },
-            }}
-          >
-            {!isLargeScreen && (
+            {/* Left Side - Multiple Cards */}
+            <Grid item xs={12} md={8}>
               <Box
                 sx={{
-                  position: "absolute",
-                  right: "-80px",
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                  width: "700px",
-                  height: "100%",
-                  background:
-                    "radial-gradient(circle at center, #ffffff 0%, #F3F3F3 100%)",
-                  clipPath: "ellipse(50% 70% at 50% 50%)",
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "10px",
+                  width: "100%",
                 }}
-              ></Box>
-            )}
+              >
+                {/* First Card */}
+                <Card
+                  sx={{
+                    flex: "1 1 48%",
+                    maxWidth: { xs: "100%", md: "48%" },
+                    display: "flex",
+                    alignItems: "center",
+                    backgroundColor: "#F5F5F5",
+                  }}
+                >
+                  <CardMedia
+                    component="img"
+                    image="/Assets/blog1.png"
+                    sx={{ width: "165px", padding: 0 }}
+                  />
+                  <Box>
+                    <CardContent>
+                      <Typography gutterBottom variant="h5">
+                        PayZen launching ceremony with <br /> master card
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        sx={{ color: "text.secondary" }}
+                      >
+                        PayZen launching ceremony in collaboration with
+                        Mastercard, marking a new era of seamless and secure
+                        payment solutions.
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button size="small">Get Started {">"}</Button>
+                    </CardActions>
+                  </Box>
+                </Card>
 
-            <img
-              src="/Assets/iPhone 13 Pro.png"
-              alt="Hero"
-              style={{
-                width: "100%",
-                maxWidth: "600px",
-                height: "auto",
-                position: "relative",
-                zIndex: 3,
-              }}
-            />
+                {/* Second Card */}
+                <Card
+                  sx={{
+                    flex: "1 1 48%",
+                    maxWidth: { xs: "100%", md: "48%" },
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    backgroundColor: "#F5F5F5",
+                  }}
+                >
+                  <Typography
+                    gutterBottom
+                    variant="body1"
+                    sx={{ fontWeight: "bold", padding: "10px" }}
+                  >
+                    Welcome New Digital <br /> ERA
+                  </Typography>
+                  <CardMedia
+                    component="img"
+                    image="/Assets/blog2.png"
+                    sx={{ width: "100%", padding: "10px" }}
+                  />
+                  <CardActions>
+                    <Button size="small">Get Started {">"}</Button>
+                  </CardActions>
+                </Card>
+              </Box>
+
+              {/* Full-width card */}
+              <Card
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  backgroundColor: "#F5F5F5",
+                  mt: 1,
+                  flexWrap: { xs: "wrap", md: "nowrap" },
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  image="/Assets/blog3.png"
+                  sx={{ width: { xs: "100%", md: "40%" }, padding: 0 }}
+                />
+                <Box>
+                  <CardContent>
+                    <Typography gutterBottom variant="h5">
+                      PayZen join hands with Jazz Cash for digital payments in
+                      Pakistan
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{ color: "text.secondary" }}
+                    >
+                      PayZen has partnered with JazzCash to expand digital
+                      payment options across Pakistan, making secure and
+                      convenient transactions more accessible.
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small">Get Started {">"}</Button>
+                  </CardActions>
+                </Box>
+              </Card>
+            </Grid>
+
+            {/* Right Side - Single Large Card with Full Height */}
+            <Grid
+              item
+              xs={12}
+              md={4}
+              sx={{ display: "flex", flexDirection: "column" }}
+            >
+              <Box
+                sx={{
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Card
+                  sx={{
+                    width: "100%",
+                    maxWidth: "400px",
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <CardMedia
+                    sx={{ height: 298, width: "100%" }}
+                    image="/Assets/blog4.jpeg"
+                  />
+                  <CardContent sx={{ flexGrow: 1 }}>
+                    <Typography
+                      variant="body1"
+                      sx={{ fontSize: "20px", fontWeight: 700 }}
+                    >
+                      PayZen has officially signed <br /> MOU with Visa Card and
+                      HBL
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{ color: "text.secondary" }}
+                    >
+                      This partnership will allow PayZen to integrate Visa's
+                      extensive network and HBL's robust banking services,
+                      bringing secure and accessible payments.
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small">Share</Button>
+                    <Button size="small">Learn More</Button>
+                  </CardActions>
+                </Card>
+              </Box>
+            </Grid>
           </Grid>
-        </Grid>
-      </Box>
+        </Box>
+      </Container>
       {/* FAQ'S  */}
       <Container>
         <AskQuestions />
@@ -989,30 +950,40 @@ const Home = () => {
             industry developments <br /> as PayZen continues to revolutionize
             digital payments.
           </Typography>
-          <Grid container spacing={1}>
+          <Grid
+            container
+            spacing={2}
+            justifyContent="center"
+            alignItems="stretch"
+          >
+            {/* Left Side - Multiple Cards */}
             <Grid item xs={12} md={8}>
-              <Box sx={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "10px",
+                  width: "100%",
+                }}
+              >
+                {/* First Card */}
                 <Card
                   sx={{
-                    maxWidth: { md: 400 },
-                    width: "100%",
+                    flex: "1 1 66%",
+                    maxWidth: { xs: "100%", md: "66%" },
                     display: "flex",
-                    justifyContent: "center",
                     alignItems: "center",
-                    flexWrap: "nowrap",
-                    padding: 0,
                     backgroundColor: "#F5F5F5",
                   }}
                 >
                   <CardMedia
                     component="img"
-                    alt="green iguana"
                     image="/Assets/blog1.png"
-                    sx={{ maxWidth: "165px", padding: 0 }}
+                    sx={{ width: "165px", padding: 0 }}
                   />
                   <Box>
                     <CardContent>
-                      <Typography gutterBottom variant="h5" component="div">
+                      <Typography gutterBottom variant="h5">
                         PayZen launching ceremony with <br /> master card
                       </Typography>
                       <Typography
@@ -1025,21 +996,19 @@ const Home = () => {
                       </Typography>
                     </CardContent>
                     <CardActions>
-                      <Button size="small" sx={{ textTransform: "none" }}>
-                        Get Started {">"}
-                      </Button>
+                      <Button size="small">Get Started {">"}</Button>
                     </CardActions>
                   </Box>
                 </Card>
+
+                {/* Second Card */}
                 <Card
                   sx={{
-                    maxWidth: 200,
+                    flex: "1 1 32%",
+                    maxWidth: { xs: "100%", md: "32%" },
                     display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
                     flexDirection: "column",
-
-                    padding: 0,
+                    alignItems: "center",
                     backgroundColor: "#F5F5F5",
                   }}
                 >
@@ -1047,33 +1016,26 @@ const Home = () => {
                     gutterBottom
                     variant="body1"
                     sx={{ fontWeight: "bold", padding: "10px" }}
-                    component="div"
                   >
                     Welcome New Digital <br /> ERA
                   </Typography>
-
                   <CardMedia
                     component="img"
-                    alt="green iguana"
                     image="/Assets/blog2.png"
                     sx={{ width: "100%", padding: "10px" }}
                   />
-                  <Box>
-                    <CardActions>
-                      <Button size="small" sx={{ textTransform: "none" }}>
-                        Get Started {">"}
-                      </Button>
-                    </CardActions>
-                  </Box>
+                  <CardActions>
+                    <Button size="small">Get Started {">"}</Button>
+                  </CardActions>
                 </Card>
               </Box>
+
+              {/* Full-width card */}
               <Card
                 sx={{
-                  maxWidth: 610,
+                  width: "99.5%",
                   display: "flex",
-                  justifyContent: "center",
                   alignItems: "center",
-                  padding: 0,
                   backgroundColor: "#F5F5F5",
                   mt: 1,
                   flexWrap: { xs: "wrap", md: "nowrap" },
@@ -1081,24 +1043,14 @@ const Home = () => {
               >
                 <CardMedia
                   component="img"
-                  alt="green iguana"
                   image="/Assets/blog3.png"
-                  sx={{
-                    // maxWidth: { md: "165px" },
-                    width: { xs: "100%", md: "100%" },
-                    padding: 0,
-                  }}
+                  sx={{ width: { xs: "100%", md: "40%" }, padding: 0 }}
                 />
                 <Box>
                   <CardContent>
-                    <Typography
-                      gutterBottom
-                      variant="bdoy1"
-                      component="div"
-                      sx={{ fontSize: "20px" }}
-                    >
-                      PayZen join hands with Jazz Cash for digital payments i
-                      pakistan
+                    <Typography gutterBottom variant="h5">
+                      PayZen join hands with Jazz Cash for digital payments in
+                      Pakistan
                     </Typography>
                     <Typography
                       variant="body2"
@@ -1106,45 +1058,66 @@ const Home = () => {
                     >
                       PayZen has partnered with JazzCash to expand digital
                       payment options across Pakistan, making secure and
-                      convenient transactions more accessible than ever.
+                      convenient transactions more accessible.
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" sx={{ textTransform: "none" }}>
-                      Get Started {">"}
-                    </Button>
+                    <Button size="small">Get Started {">"}</Button>
                   </CardActions>
                 </Box>
               </Card>
             </Grid>
-            <Grid item xs={12} md={4}>
-              <Card sx={{ maxWidth: 500 }}>
-                <CardMedia
-                  sx={{ height: 298, width: "100%", maxWidth: 400 }}
-                  image="/Assets/blog4.jpeg"
-                  title="green iguana"
-                />
-                <CardContent>
-                  <Typography
-                    gutterBottom
-                    variant="body1"
-                    component="div"
-                    sx={{ fontsize: "20px", fontWeight: 700 }}
-                  >
-                    PayZen has officially signed <br /> MOU with Visa Card and
-                    HBL
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                    This partnership will allow PayZen to <br /> integrate
-                    Visa's extensive network and <br /> HBL's robust banking
-                    services, bringing <br /> secure and accessible.
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button size="small">Share</Button>
-                  <Button size="small">Learn More</Button>
-                </CardActions>
-              </Card>
+
+            {/* Right Side - Single Large Card with Full Height */}
+            <Grid
+              item
+              xs={12}
+              md={4}
+              sx={{ display: "flex", flexDirection: "column" }}
+            >
+              <Box
+                sx={{
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Card
+                  sx={{
+                    width: "100%",
+                    maxWidth: "400px",
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <CardMedia
+                    sx={{ height: 298, width: "100%" }}
+                    image="/Assets/blog4.jpeg"
+                  />
+                  <CardContent sx={{ flexGrow: 1 }}>
+                    <Typography
+                      variant="body1"
+                      sx={{ fontSize: "20px", fontWeight: 700 }}
+                    >
+                      PayZen has officially signed <br /> MOU with Visa Card and
+                      HBL
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{ color: "text.secondary" }}
+                    >
+                      This partnership will allow PayZen to integrate Visa's
+                      extensive network and HBL's robust banking services,
+                      bringing secure and accessible payments.
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small">Share</Button>
+                    <Button size="small">Learn More</Button>
+                  </CardActions>
+                </Card>
+              </Box>
             </Grid>
           </Grid>
         </Box>

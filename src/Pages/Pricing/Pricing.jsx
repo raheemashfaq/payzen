@@ -51,9 +51,8 @@ const Pricing = () => {
 
         <FeatureCard />
         <Unique />
-
-        <SecuritySupport />
       </Container>
+      <SecuritySupport />
     </div>
   );
 };

@@ -42,6 +42,11 @@ const FeatureCard = () => {
                 margin: "20px",
                 borderRadius: "10px",
                 border: "4px solid #F3F3F3",
+                "&:hover": {
+                  bgcolor: "#1253A4",
+                  transition: "0.3s",
+                  color: "#fff",
+                },
               }}
             >
               <CardContent

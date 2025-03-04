@@ -23,3 +23,35 @@
   margin-left: auto;
   max-width: none;
 }
+/* Make all dots blue */
+.slick-dots li button:before {
+  color: blue !important; /* Change color to blue */
+  font-size: 12px; /* Default size */
+  opacity: 1; /* Make all dots fully visible */
+}
+
+/* Make the active dot bold and bigger */
+.slick-dots li.slick-active button:before {
+  font-size: 16px !important; /* Increase size for active dot */
+  font-weight: bold; /* Make it bold */
+}
+.slick-slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Adjust dot position */
+.slick-dots {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Maintain image aspect ratio */
+.slick-slide img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
