@@ -738,188 +738,167 @@ const Home = () => {
         </Box>
       </Container>
       {/* Apps Downloads  */}
-      <Container>
-        <Box
-          sx={{
-            padding: { xs: "30px 0", sm: "40px 0", md: "50px 0" }, // Responsive padding
-            backgroundImage: "url(/Assets/bg_left_right.png)",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: { xs: "cover", md: "contain" }, // Responsive background
-          }}
-        >
+      <Box
+        sx={{
+          padding: { xs: "30px 0", sm: "40px 0", md: "50px 0" }, // Responsive padding
+          backgroundImage: "url(/Assets/bg_left_right.png)",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: { xs: "cover", md: "contain" }, // Responsive background
+        }}
+      >
+        <Grid container spacing={{ xs: 4, md: 6 }}>
+          {" "}
+          {/* Added responsive spacing */}
           <Grid
-            container
-            spacing={2}
-            justifyContent="center"
-            alignItems="stretch"
+            item
+            xs={12}
+            md={6}
+            sx={{
+              padding: { xs: 2, sm: 3, md: 4 }, // Responsive padding
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: { xs: "center", md: "flex-start" },
+              textAlign: { xs: "center", md: "left" },
+            }}
           >
-            {/* Left Side - Multiple Cards */}
-            <Grid item xs={12} md={8}>
-              <Box
+            <Box sx={{ marginLeft: { xs: "8px", md: "45px" } }}>
+              <Typography
                 sx={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: "10px",
-                  width: "100%",
+                  fontSize: { xs: "20px", sm: "24px", md: "32px" }, // More responsive font sizes
+                  fontWeight: 700,
+                  color: "#ffffff",
+                  marginBottom: { xs: "8px", sm: "10px" }, // Responsive margin
                 }}
               >
-                {/* First Card */}
-                <Card
-                  sx={{
-                    flex: "1 1 48%",
-                    maxWidth: { xs: "100%", md: "48%" },
-                    display: "flex",
-                    alignItems: "center",
-                    backgroundColor: "#F5F5F5",
-                  }}
-                >
-                  <CardMedia
-                    component="img"
-                    image="/Assets/blog1.png"
-                    sx={{ width: "165px", padding: 0 }}
-                  />
-                  <Box>
-                    <CardContent>
-                      <Typography gutterBottom variant="h5">
-                        PayZen launching ceremony with <br /> master card
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        sx={{ color: "text.secondary" }}
-                      >
-                        PayZen launching ceremony in collaboration with
-                        Mastercard, marking a new era of seamless and secure
-                        payment solutions.
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="small">Get Started {">"}</Button>
-                    </CardActions>
-                  </Box>
-                </Card>
-
-                {/* Second Card */}
-                <Card
-                  sx={{
-                    flex: "1 1 48%",
-                    maxWidth: { xs: "100%", md: "48%" },
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    backgroundColor: "#F5F5F5",
-                  }}
-                >
-                  <Typography
-                    gutterBottom
-                    variant="body1"
-                    sx={{ fontWeight: "bold", padding: "10px" }}
-                  >
-                    Welcome New Digital <br /> ERA
-                  </Typography>
-                  <CardMedia
-                    component="img"
-                    image="/Assets/blog2.png"
-                    sx={{ width: "100%", padding: "10px" }}
-                  />
-                  <CardActions>
-                    <Button size="small">Get Started {">"}</Button>
-                  </CardActions>
-                </Card>
-              </Box>
-
-              {/* Full-width card */}
-              <Card
+                Coming Soon....
+              </Typography>
+              <Typography
                 sx={{
-                  width: "100%",
-                  display: "flex",
-                  alignItems: "center",
-                  backgroundColor: "#F5F5F5",
-                  mt: 1,
-                  flexWrap: { xs: "wrap", md: "nowrap" },
+                  fontSize: { xs: "20px", sm: "24px", md: "32px" }, // More responsive font sizes
+                  fontWeight: 700,
+                  color: "#ffffff",
+                  lineHeight: { xs: 1.4, md: 1.5 }, // Added responsive line height
                 }}
               >
-                <CardMedia
-                  component="img"
-                  image="/Assets/blog3.png"
-                  sx={{ width: { xs: "100%", md: "40%" }, padding: 0 }}
+                Download Our Mobile App{" "}
+                <Box
+                  component="br"
+                  sx={{ display: { xs: "none", sm: "block" } }}
                 />
-                <Box>
-                  <CardContent>
-                    <Typography gutterBottom variant="h5">
-                      PayZen join hands with Jazz Cash for digital payments in
-                      Pakistan
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{ color: "text.secondary" }}
-                    >
-                      PayZen has partnered with JazzCash to expand digital
-                      payment options across Pakistan, making secure and
-                      convenient transactions more accessible.
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small">Get Started {">"}</Button>
-                  </CardActions>
-                </Box>
-              </Card>
-            </Grid>
+                To Get All Features Of{" "}
+                <Box
+                  component="br"
+                  sx={{ display: { xs: "none", sm: "block" } }}
+                />
+                PAYZEN
+              </Typography>
 
-            {/* Right Side - Single Large Card with Full Height */}
-            <Grid
-              item
-              xs={12}
-              md={4}
-              sx={{ display: "flex", flexDirection: "column" }}
-            >
               <Box
                 sx={{
-                  height: "100%",
                   display: "flex",
-                  flexDirection: "column",
+                  flexDirection: { xs: "column", sm: "row" },
+                  alignItems: "center",
+                  gap: { xs: "12px", sm: "16px" }, // Responsive gap
+                  marginTop: { xs: "16px", sm: "20px" }, // Responsive margin
+                  width: { xs: "100%", sm: "auto" }, // Full width on mobile
                 }}
               >
-                <Card
+                <Button
+                  variant="contained"
                   sx={{
-                    width: "100%",
-                    maxWidth: "400px",
-                    height: "100%",
+                    backgroundColor: "#ffffff",
+                    color: "#000",
+                    borderRadius: "30px",
+                    padding: {
+                      xs: "8px 16px",
+                      sm: "10px 20px",
+                      md: "12px 24px",
+                    }, // More responsive padding
+                    border: "1px solid #11243F",
                     display: "flex",
-                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "8px",
+                    textTransform: "none",
+                    fontSize: { xs: "14px", sm: "15px", md: "16px" }, // More responsive font
+                    width: { xs: "100%", sm: "auto" }, // Full width on mobile
+                    "&:hover": {
+                      backgroundColor: "#f5f5f5",
+                    },
                   }}
                 >
-                  <CardMedia
-                    sx={{ height: 298, width: "100%" }}
-                    image="/Assets/blog4.jpeg"
+                  <img
+                    src="/Assets/apple.png"
+                    alt="Apple Store"
+                    style={{ width: "20px", height: "20px" }}
                   />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography
-                      variant="body1"
-                      sx={{ fontSize: "20px", fontWeight: 700 }}
-                    >
-                      PayZen has officially signed <br /> MOU with Visa Card and
-                      HBL
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{ color: "text.secondary" }}
-                    >
-                      This partnership will allow PayZen to integrate Visa's
-                      extensive network and HBL's robust banking services,
-                      bringing secure and accessible payments.
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small">Share</Button>
-                    <Button size="small">Learn More</Button>
-                  </CardActions>
-                </Card>
+                  Download Now
+                </Button>
+
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "#ffffff",
+                    color: "#000",
+                    borderRadius: "30px",
+                    padding: {
+                      xs: "8px 16px",
+                      sm: "10px 20px",
+                      md: "12px 24px",
+                    }, // More responsive padding
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    textTransform: "none",
+                    fontSize: { xs: "14px", sm: "15px", md: "16px" }, // More responsive font
+                    width: { xs: "100%", sm: "auto" }, // Full width on mobile
+                    "&:hover": {
+                      backgroundColor: "#f5f5f5",
+                    },
+                  }}
+                >
+                  <img
+                    src="/Assets/playstore.png"
+                    alt="Play Store"
+                    style={{ width: "20px", height: "20px" }}
+                  />
+                  Download Now
+                </Button>
               </Box>
-            </Grid>
+            </Box>
           </Grid>
-        </Box>
-      </Container>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              position: "relative", // Added for proper image positioning
+              minHeight: { xs: "400px", md: "600px" }, // Ensure minimum height
+              overflow: "hidden", // Prevent image overflow
+            }}
+          >
+            <Box
+              component="img"
+              src="/Assets/iPhone 13 Pro.png"
+              alt="Hero"
+              sx={{
+                position: { md: "absolute" },
+                right: { md: "-5%" },
+                bottom: { sm: "0", md: "45px" },
+                height: { xs: "auto", md: "557px" },
+                maxWidth: { md: "550px" },
+                width: { sm: "100%" },
+                objectFit: "contain",
+                transform: { md: "translateX(0)" },
+              }}
+            />
+          </Grid>
+        </Grid>
+      </Box>
       {/* FAQ'S  */}
       <Container>
         <AskQuestions />
