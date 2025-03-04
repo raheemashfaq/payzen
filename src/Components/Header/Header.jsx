@@ -9,6 +9,7 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
 import "./Header.css"; // Ensure this file has styles for hover effects
+import { Container } from "@mui/material";
 
 export default function Header() {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -65,95 +66,97 @@ export default function Header() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="sticky" sx={{ background: "#fff", padding: "10px 0" }}>
-        <Toolbar>
-          {/* Logo */}
-          <Link to="/">
+        <Container>
+          <Toolbar>
+            {/* Logo */}
+            <Link to="/">
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "5px",
+                }}
+              >
+                <img
+                  src="/Assets/coin.png"
+                  alt="Logo"
+                  style={{ width: "40px", height: "40px" }}
+                />
+                <img
+                  src="/Assets/plogo.png"
+                  alt="logo"
+                  style={{ height: "30px" }}
+                />
+              </Box>
+            </Link>
+
+            <Box sx={{ flexGrow: 1 }} />
+
+            {/* Desktop Menu */}
             <Box
               sx={{
-                display: "flex",
+                display: { xs: "none", md: "flex" },
                 alignItems: "center",
-                gap: "5px",
+                gap: 1,
               }}
             >
-              <img
-                src="/Assets/coin.png"
-                alt="Logo"
-                style={{ width: "40px", height: "40px" }}
-              />
-              <img
-                src="/Assets/plogo.png"
-                alt="logo"
-                style={{ height: "30px" }}
-              />
-            </Box>
-          </Link>
-
-          <Box sx={{ flexGrow: 1 }} />
-
-          {/* Desktop Menu */}
-          <Box
-            sx={{
-              display: { xs: "none", md: "flex" },
-              alignItems: "center",
-              gap: 1,
-            }}
-          >
-            {menuItems.map((item, index) => (
-              <NavLink
-                key={index}
-                to={item.path}
-                className="menu-link"
-                style={({ isActive }) => ({
-                  textDecoration: "none",
-                  color: isActive ? "green" : "black",
-                  fontWeight: isActive ? "bold" : "normal",
-                  padding: "10px 15px",
-                  transition: "color 0.3s ease-in-out",
-                })}
+              {menuItems.map((item, index) => (
+                <NavLink
+                  key={index}
+                  to={item.path}
+                  className="menu-link"
+                  style={({ isActive }) => ({
+                    textDecoration: "none",
+                    color: isActive ? "green" : "black",
+                    fontWeight: isActive ? "bold" : "normal",
+                    padding: "5px 10px",
+                    transition: "color 0.3s ease-in-out",
+                  })}
+                >
+                  {item.name}
+                </NavLink>
+              ))}
+              <Button
+                variant="outlined"
+                sx={{
+                  borderRadius: "20px",
+                  color: "black",
+                  marginLeft: 2,
+                  "&:hover": {
+                    backgroundColor: "#f0f0f0",
+                  },
+                }}
               >
-                {item.name}
-              </NavLink>
-            ))}
-            <Button
-              variant="outlined"
-              sx={{
-                borderRadius: "20px",
-                color: "black",
-                marginLeft: 2,
-                "&:hover": {
-                  backgroundColor: "#f0f0f0",
-                },
-              }}
-            >
-              Register Now
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
-              sx={{
-                borderRadius: "20px",
-                color: "white",
-                marginLeft: 2,
-              }}
-            >
-              Sign In
-            </Button>
-          </Box>
+                Register Now
+              </Button>
+              <Button
+                variant="contained"
+                color="primary"
+                sx={{
+                  borderRadius: "20px",
+                  color: "white",
+                  marginLeft: 2,
+                }}
+              >
+                Sign In
+              </Button>
+            </Box>
 
-          {/* Mobile Menu Icon */}
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="gray"
-            >
-              <MenuIcon />
-            </IconButton>
-          </Box>
-        </Toolbar>
+            {/* Mobile Menu Icon */}
+            <Box sx={{ display: { xs: "flex", md: "none" } }}>
+              <IconButton
+                size="large"
+                aria-label="show more"
+                aria-controls={mobileMenuId}
+                aria-haspopup="true"
+                onClick={handleMobileMenuOpen}
+                color="gray"
+              >
+                <MenuIcon />
+              </IconButton>
+            </Box>
+          </Toolbar>
+        </Container>
       </AppBar>
       {renderMobileMenu}
     </Box>
